@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +13,10 @@ public class theHillsAreAlive : MonoBehaviour {
 	private MeshCollider myCollider;
 
 	public float seed = 0f;
+
+	private Vector3[] vertices;
+
+	public bool isMoving = true;
 
 	void Start () {
 
@@ -30,7 +34,7 @@ public class theHillsAreAlive : MonoBehaviour {
 
 	void generatePerlinHills(){
 
-		Vector3[] vertices = myMeshFilter.vertices;
+		vertices = myMeshFilter.vertices;
 
 		//Debug.Log ("There are " + vertices.Length +
 		//" vertices on the plane!");
@@ -65,11 +69,16 @@ public class theHillsAreAlive : MonoBehaviour {
 
 	void Update () {
 	
-		if (Input.GetKeyUp (KeyCode.Space)) {
-			seed += 0.1f;
-			generatePerlinHills ();
+		if (Input.GetKeyUp (KeyCode.Space))
+			isMoving = !isMoving;
+			
 
+		if (isMoving) {
+			seed += 0.03f;
+			generatePerlinHills ();
 		}
+
+
 
 
 	}
