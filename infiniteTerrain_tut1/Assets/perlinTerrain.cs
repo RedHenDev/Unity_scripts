@@ -27,14 +27,18 @@ public class perlinTerrain : MonoBehaviour {
 
 	void generateTerrain(){
 
-		seed+=0.01f;
+		seed+=0.0001f;
+
+		float detail = 10f;
 
 		Vector3[] vertices = myMesh.vertices;
 
 		for (int i = 0; i < vertices.Length; i++) {
 			//vertices[i].y = Random.Range (0,3);
-			vertices[i].y = -3.5f + Mathf.PerlinNoise(1/(vertices[i].x+0.1f) + seed, 1/(vertices[i].z+0.1f)*seed) * 7f;
-			Debug.Log ("Y = " + vertices [i].y);
+			vertices[i].y = -3.5f + Mathf.PerlinNoise(this.transform.position.x*detail +
+				(vertices[i].x) + seed, 
+				this.transform.position.z *detail + (vertices[i].z)) * 7f;
+			//Debug.Log ("Y = " + vertices [i].y);
 		}
 
 		// Replace the collider and update vertices.
