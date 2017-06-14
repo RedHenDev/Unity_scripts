@@ -1,38 +1,45 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class theHillsAreAlive : MonoBehaviour {
 
 
-	private Mesh myMeshFilter;
+	private Mesh myMeshFilter = null;
 
 	public float gradient = 5f;
 	public float height = 5f;
 
-	private MeshCollider myCollider;
+	private MeshCollider myCollider = null;
 
 	public float seed = 0f;
 
 	private Vector3[] vertices;
 
-	public bool isMoving = true;
+	public bool isMoving = false;
 
 	void Start () {
 
+
+
+
+		//generatePerlinHills ();
+
+	}
+
+	void grabComponents(){
 
 		myMeshFilter = this.
 			GetComponent<MeshFilter> ().mesh;
 
 		myCollider = this.
 			GetComponent<MeshCollider> ();
-
-		generatePerlinHills ();
-
 	}
 
+	public void generatePerlinHills(){
 
-	void generatePerlinHills(){
+		if (myMeshFilter == null)
+			grabComponents ();
 
 		vertices = myMeshFilter.vertices;
 
@@ -46,13 +53,13 @@ public class theHillsAreAlive : MonoBehaviour {
 		for (int i = 0; i < vertices.Length; i++) {
 
 
-			pX = (this.transform.position.x
-				+ vertices [i].x) / gradient; 
-			pZ = (this.transform.position.z
-				+ vertices [i].z) / gradient + seed;
+			pX = (1000000 + this.transform.position.x
+				+ vertices [i].x * this.transform.lossyScale.x) / gradient; 
+			pZ = (1000000 + this.transform.position.z
+				+ vertices [i].z * this.transform.lossyScale.z) / gradient + seed;
 
-			vertices [i].y = Mathf.PerlinNoise (pX, pZ) *
-												height; 
+			vertices [i].y = Mathf.PerlinNoise 
+				(pX , pZ ) * height; 
 
 
 		}
