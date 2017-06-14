@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1043
     height: 731
-  m_MinSize: {x: 507, y: 471}
-  m_MaxSize: {x: 14002, y: 14021}
+  m_MinSize: {x: 509, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 45476
+  controlID: 47434
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -120,10 +120,10 @@ MonoBehaviour:
     y: 0
     width: 737
     height: 731
-  m_MinSize: {x: 230, y: 471}
-  m_MaxSize: {x: 10000, y: 14021}
+  m_MinSize: {x: 232, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 45368
+  controlID: 47364
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -315,18 +315,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/immersiveScene
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/immersiveScene
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/bnew/Documents/Unity_scripts/infiniteTerrain_tut1
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 86290000
-    m_LastClickedID: 10630
+    m_SelectedIDs: 8e2b0000
+    m_LastClickedID: 11150
     m_ExpandedIDs: 00000000862900008c2900009a290000ce2900004e2a0000502a0000962b0000205900002659000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -380,9 +380,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 6e83f7ff
-    m_LastClickedInstanceID: -556178
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: ac2b0000
+    m_LastClickedInstanceID: 11180
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 292}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 45477
+  controlID: 47435
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -571,9 +571,9 @@ MonoBehaviour:
     height: 224
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6e83f7ff
-    m_LastClickedID: -556178
-    m_ExpandedIDs: 6cd7f7ff9c11f9fff418f9ff461afdffd81effffb825ffffb6e4ffffcaefffff00000000
+    m_SelectedIDs: ac2b0000
+    m_LastClickedID: 0
+    m_ExpandedIDs: d0e0f2ff8ceef2ff6cd7f7ff9c11f9fff418f9ff461afdffd81effffb825ffffb6e4ffffcaefffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

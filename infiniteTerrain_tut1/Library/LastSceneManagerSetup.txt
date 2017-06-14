@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/terrainGen.unity
+- path: Assets/immersiveScene/defaultScene.unity
   isLoaded: 1
   isActive: 1
