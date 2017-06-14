@@ -7,10 +7,13 @@ public class perlinTerrain : MonoBehaviour {
 	private Mesh myMesh = null; 
 
 	public float seed = 1000;
+	public float waveSpeed = 0.004f;
 
 	public float detailScale = 3.2f;
+	public float detailScale2 = 25f;
 
 	public float amplitude = 8f;
+	public float amplitude2 = 15f;
 
 	private bool perlinMoving = false;
 
@@ -46,30 +49,34 @@ public class perlinTerrain : MonoBehaviour {
 		if (myMesh == null)
 			getComponents ();
 
-		seed+= 0.01f;
+		seed+= waveSpeed;
 
 		vertices = myMesh.vertices;
 
 		float pX = 0;
 		float pZ = 0;
 
-		float detailScale2 = 25f;
 		float pX2 = 0;
 		float pZ2 = 0;
 
 		for (int i = 0; i < vertices.Length; i++) {
 			//vertices[i].y = Random.Range (0,3);
 
-			pX = (1000000 + this.transform.position.x + vertices [i].x)/detailScale + seed;
-			pZ = (1000000 + this.transform.position.z + vertices [i].z)/detailScale;
+			pX = pX2 = (1000000 + this.transform.position.x + vertices [i].x * this.transform.lossyScale.x);
+			pZ = pZ2 = (1000000 + this.transform.position.z + vertices [i].z * this.transform.lossyScale.z);
 
-			pX2 = (500000 + this.transform.position.x + vertices [i].x)/detailScale2 + seed;
-			pZ2 = (500000 + this.transform.position.z + vertices [i].z)/detailScale2;
+			pX = pX /detailScale + seed;
+			pX2 = pX2 /detailScale2 + seed;
+			pZ = pZ /detailScale;
+			pZ2 = pZ2 /detailScale2;
 
+//			pX2 = (1000000 + this.transform.position.x + vertices [i].x * this.transform.lossyScale.x)/detailScale2 + seed;
+//			pZ2 = (1000000 + this.transform.position.z + vertices [i].z * this.transform.lossyScale.z)/detailScale2;
+//
 
 			vertices[i].y = amplitude/2f + Mathf.PerlinNoise(pX, pZ) * amplitude;
 
-			vertices [i].y += Mathf.PerlinNoise (pX2, pZ2) * amplitude * 5f;
+			vertices [i].y += Mathf.PerlinNoise (pX2, pZ2) * amplitude2;
 
 			//Debug.Log ("Y = " + vertices [i].y);
 		}

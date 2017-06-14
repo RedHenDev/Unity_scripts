@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 507, y: 471}
   m_MaxSize: {x: 14002, y: 14021}
   vertical: 0
-  controlID: 30501
+  controlID: 45476
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 230, y: 471}
   m_MaxSize: {x: 10000, y: 14021}
   vertical: 1
-  controlID: 30431
+  controlID: 45368
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -178,14 +178,14 @@ MonoBehaviour:
     width: 735
     height: 434
   m_SceneLighting: 1
-  lastFramingTime: 9328.645223975182
+  lastFramingTime: 19534.153320014477
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 48.159866, y: -18.956383, z: 47.90143}
+    m_Target: {x: 0.7388284, y: 25.90754, z: 2.390364}
     speed: 2
-    m_Value: {x: 48.159866, y: -18.956383, z: 47.90143}
+    m_Value: {x: 0.7388284, y: 25.90754, z: 2.390364}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -208,17 +208,17 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.02635028, y: 0.9632996, z: -0.24648425, w: 0.10298108}
+    m_Target: {x: 0.7071069, y: 0, z: 0, w: 0.7071069}
     speed: 2
-    m_Value: {x: 0.02635028, y: 0.9632996, z: -0.24648426, w: 0.10298108}
+    m_Value: {x: -0.7071069, y: 0, z: -0, w: -0.7071069}
   m_Size:
-    m_Target: 206.01242
+    m_Target: 56.419857
     speed: 2
-    m_Value: 206.01242
+    m_Value: 56.419857
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
@@ -315,18 +315,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/3DTerrain_tutorial
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/3DTerrain_tutorial
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/bnew/Documents/Unity_scripts/infiniteTerrain_tut1
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 98290000
-    m_LastClickedID: 10648
+    m_SelectedIDs: 86290000
+    m_LastClickedID: 10630
     m_ExpandedIDs: 00000000862900008c2900009a290000ce2900004e2a0000502a0000962b0000205900002659000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -380,9 +380,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a896ffff
-    m_LastClickedInstanceID: -26968
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 6e83f7ff
+    m_LastClickedInstanceID: -556178
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 292}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 30502
+  controlID: 45477
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -511,7 +511,7 @@ MonoBehaviour:
     y: 94.00023
     width: 304
     height: 465
-  m_ScrollPosition: {x: 0, y: 272.95508}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
@@ -571,9 +571,9 @@ MonoBehaviour:
     height: 224
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a896ffff
-    m_LastClickedID: 0
-    m_ExpandedIDs: 461afdffd81effffb825ffffb6e4ffffcaefffff00000000
+    m_SelectedIDs: 6e83f7ff
+    m_LastClickedID: -556178
+    m_ExpandedIDs: 6cd7f7ff9c11f9fff418f9ff461afdffd81effffb825ffffb6e4ffffcaefffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
