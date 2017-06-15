@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/3DTerrain_tutorial/theHillsAreAlive.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/immersiveScene/terrainManager.cs">
     <Files>
-      <File FileName="Assets/3DTerrain_tutorial/theHillsAreAlive.cs" Line="63" Column="4" />
-      <File FileName="Assets/3DTerrain_tutorial/terrainBrain.cs" Line="45" Column="5" />
+      <File FileName="Assets/immersiveScene/perlinTerrain.cs" Line="72" Column="4" />
+      <File FileName="Assets/immersiveScene/terrainManager.cs" Line="54" Column="67" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
