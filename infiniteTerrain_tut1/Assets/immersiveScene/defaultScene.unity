@@ -378,14 +378,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45fb689a36827a4384bc64dd9e31fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {x: -10, y: 0, z: -15}
+  startPos: {x: -10, y: -6, z: -15}
   numberOftilesX: 10
   numberOftilesZ: 6
-  detailScale: 5
-  amplitude: 1
+  detailScale: 25
+  detailScale2: 3
+  amplitude: 5
+  amplitude2: 3
   seed: 1
   waveSpeed: 0.01
   perlinTile: {fileID: 1756859876883736, guid: cb5af0ab0e20b5044977dda2e8daa3d6, type: 2}
+  centreOnSubject: 1
 --- !u!4 &245664876
 Transform:
   m_ObjectHideFlags: 0
@@ -1178,6 +1181,11 @@ Prefab:
       propertyPath: messageBoard
       value: 
       objectReference: {fileID: 1449755436}
+    - target: {fileID: 114041772902305544, guid: 88785b612ad5ec148a2d9a7efb9f2307,
+        type: 2}
+      propertyPath: secondsToShow
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88785b612ad5ec148a2d9a7efb9f2307, type: 2}
   m_IsPrefabParent: 0

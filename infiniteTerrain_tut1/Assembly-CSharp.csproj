@@ -58,6 +58,7 @@
      <Compile Include="Assets\immersiveScene\perlinTerrain.cs" />
      <Compile Include="Assets\immersiveScene\stairSeed\script_stairSeed.cs" />
      <Compile Include="Assets\immersiveScene\terrainManager.cs" />
+     <Compile Include="Assets\infiniteTerrainManager.cs" />
      <Compile Include="Assets\legacyTerrain\Gen_RollingTerrain.cs" />
      <Compile Include="Assets\legacyTerrain\RollingTerrainBrain.cs" />
      <None Include="Assets\immersiveScene\Rune Assets\Simple\Urban Buildings Pack 1\runesimple.shader" />

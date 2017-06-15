@@ -21,6 +21,8 @@ public class perlinTerrain : MonoBehaviour {
 
 	private Vector3[] vertices;
 
+
+
 	void Start () {
 		//getComponents ();
 		generateTerrain ();
@@ -42,6 +44,21 @@ public class perlinTerrain : MonoBehaviour {
 			generateTerrain ();
 	}
 
+
+	void paintHeights(){
+
+		//vertices = myMesh.vertices;
+
+		Material[] mySkin = this.GetComponent<MeshRenderer> ().materials; 
+
+		// Iterate over all 121 vertices and 
+		// change the 'splash map' alpha (opacity) so as to
+		// 'paint' the terrain according to each vertex's height.
+		for (int i = 0; i < vertices.Length; i++) {
+			if (vertices[i].y > 2f) 
+				this.GetComponent<MeshRenderer>().materials[mySkin.Length-1].SetVector("Color", new Vector4(255f, 255f, 255f,100f));
+		}	
+	}
 
 
 	public void generateTerrain(){
@@ -88,6 +105,8 @@ public class perlinTerrain : MonoBehaviour {
 		myCollider.sharedMesh = null;
 		myCollider.sharedMesh = myMesh;
 	
+		//paintHeights ();
+
 
 	}
 
