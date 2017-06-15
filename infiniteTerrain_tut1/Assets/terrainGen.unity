@@ -116,7 +116,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 263097588}
-  - component: {fileID: 263097587}
   - component: {fileID: 263097589}
   m_Layer: 0
   m_Name: Urizen2
@@ -125,28 +124,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 0
---- !u!114 &263097587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 263097586}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45fb689a36827a4384bc64dd9e31fdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {x: -20, y: 0, z: -20}
-  numberOftilesX: 10
-  numberOftilesZ: 10
-  detailScale: 25
-  detailScale2: 2
-  amplitude: 10
-  amplitude2: 5
-  seed: 1988
-  waveSpeed: 0.004
-  perlinTile: {fileID: 1588243533410458, guid: c78cad911d2a24c54b7dbfce93774045, type: 2}
-  centreOnSubject: 1
 --- !u!4 &263097588
 Transform:
   m_ObjectHideFlags: 0
@@ -422,7 +399,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1798246980}
-  - component: {fileID: 1798246979}
   - component: {fileID: 1798246981}
   m_Layer: 0
   m_Name: Urizen
@@ -431,28 +407,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1798246979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1798246978}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45fb689a36827a4384bc64dd9e31fdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {x: -20, y: 0, z: -20}
-  numberOftilesX: 10
-  numberOftilesZ: 10
-  detailScale: 25
-  detailScale2: 3
-  amplitude: 15
-  amplitude2: 3
-  seed: 1984
-  waveSpeed: 0.004
-  perlinTile: {fileID: 1955983256479184, guid: 55898f91a76c348f7966250367cac399, type: 2}
-  centreOnSubject: 1
 --- !u!4 &1798246980
 Transform:
   m_ObjectHideFlags: 0
@@ -478,8 +432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {x: -20, y: -2, z: 20}
-  numberOftilesX: 10
-  numberOftilesZ: 10
+  numberOftilesX: 4
+  numberOftilesZ: 4
   detailScale: 25
   detailScale2: 3
   amplitude: 15
