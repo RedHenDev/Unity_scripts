@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class terrainManager : MonoBehaviour {
 
-	public Vector3 startPos = new Vector3(0,-2,0);
+	public Vector3 startPos = new Vector3(-20, -2, 20);
 	public int numberOftilesX = 2;
 	public int numberOftilesZ = 2;
 
@@ -25,16 +25,20 @@ public class terrainManager : MonoBehaviour {
 
 		if (centreOnSubject)
 			centreTerrainOnSubject ();
-		
+
 
 		layTiles();
 	}
-	
+
 	void centreTerrainOnSubject(){
+		float yOffset = startPos.y;	// Record default y position (do not use player's!)
+
 		startPos = GameObject.Find ("Subject").transform.position;
 		startPos.x -= (numberOftilesX * 10f * perlinTile.transform.lossyScale.x) / 2;
 		startPos.z -= (numberOftilesZ * 10f * perlinTile.transform.lossyScale.z) / 2;
-		startPos.y = 0;
+
+		// Apply defauly y position -- so as not to use player's!
+		startPos.y = yOffset;
 	}
 
 
