@@ -56,7 +56,8 @@ public class perlinTerrain : MonoBehaviour {
 		// 'paint' the terrain according to each vertex's height.
 		for (int i = 0; i < vertices.Length; i++) {
 			if (vertices[i].y > 2f) 
-				this.GetComponent<MeshRenderer>().materials[mySkin.Length-1].SetVector("Color", new Vector4(255f, 255f, 255f,100f));
+				this.GetComponent<MeshRenderer>().materials[mySkin.Length-1].SetVector
+				("Color", new Vector4(255f, 255f, 255f,100f));
 		}	
 	}
 
@@ -66,7 +67,7 @@ public class perlinTerrain : MonoBehaviour {
 		if (myMesh == null)
 			getComponents ();
 
-		seed+= waveSpeed;
+		//seed+= waveSpeed;
 
 		vertices = myMesh.vertices;
 

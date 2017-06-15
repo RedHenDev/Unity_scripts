@@ -20,8 +20,14 @@ public class infiniteTerrainManager : MonoBehaviour {
 
 	public bool centreOnSubject = false;
 
+	public string playerName = "Subject";
 
 	private GameObject[] myTiles;
+
+	Vector3 subOrigPos;
+	float subOrigYaw;
+
+	float originalY = 0;
 
 	void Start () {
 		//this.transform.position = startPos;
@@ -29,16 +35,82 @@ public class infiniteTerrainManager : MonoBehaviour {
 		if (centreOnSubject)
 			centreTerrainOnSubject ();
 
+		// Record original pos of subject, so that we know
+		// how far they have moved, so as to trigger new
+		// terrain generation.
+		subOrigPos = getSubjectPos (playerName);
+		subOrigYaw = getSubjectTrans(playerName).rotation.eulerAngles.y;
 
 		layTiles();
 	}
 
-	void centreTerrainOnSubject(){
-		float yOffset = startPos.y;	// Record default y position (do not use player's!)
+	// Returns position of player (subject) by name of their gameObject.
+	Vector3 getSubjectPos(string subjectName){
+		return GameObject.Find (subjectName).transform.position;
+	}
 
-		startPos = GameObject.Find ("Subject").transform.position;
-		startPos.x -= (numberOftilesX * 10f * perlinTile.transform.lossyScale.x) / 2;
-		startPos.z -= (numberOftilesZ * 10f * perlinTile.transform.lossyScale.z) / 2;
+	Transform getSubjectTrans(string subjectName){
+		return GameObject.Find (subjectName).transform;
+	}
+
+	// Find farthest Perlin tile from player position.
+	int findYonder(){
+
+		// Farthest distance so far...
+		float dist = 0f;
+		int whichTile = 0;
+
+		float newDist = 0f;
+
+		Vector3 sP = new Vector3 (	getSubjectPos (playerName).x,
+			            			 0f,
+			             			getSubjectPos (playerName).z);
+
+		for (int x = 0; x < numberOftilesX * numberOftilesZ; x++) {
+
+				Vector3 tP = new Vector3 (myTiles [x].transform.position.x,
+					            0f,
+					            myTiles [x].transform.position.z);
+
+				// Measure distance between perlin tile and player...
+				newDist = Vector3.SqrMagnitude (sP - tP);
+
+				// Record measured distance if greatest distance so far...
+				if (newDist > dist) {
+					dist = newDist;
+					whichTile = x;
+				}
+			}
+
+		// Move farthest perlin tile to 'grid' position in front of subject...
+		//rollOn(whichTile);
+		return whichTile;
+	}
+
+	// Moves given perlin tile to correct position in front of subject.
+	void rollOn(int _whichTile){
+
+		myTiles [_whichTile].transform.position = getSubjectPos (playerName);
+		myTiles [_whichTile].transform.Translate(getSubjectTrans(playerName).forward * 
+			Mathf.Round(10f * perlinTile.transform.lossyScale.z));
+
+		myTiles[_whichTile].transform.position = new Vector3(	myTiles[_whichTile].transform.position.x,
+			originalY,
+			myTiles[_whichTile].transform.position.z);
+
+		myTiles [_whichTile].GetComponent<perlinTerrain> ().generateTerrain ();
+	}
+
+	void rollOn2(){
+		
+	}
+
+	void centreTerrainOnSubject(){
+		float yOffset = originalY = startPos.y;	// Record default y position (do not use player's!)
+
+		startPos = getSubjectPos (playerName);
+		startPos.x -= (numberOftilesX * 10f * perlinTile.transform.lossyScale.x) / 2f;
+		startPos.z -= (numberOftilesZ * 10f * perlinTile.transform.lossyScale.z) / 2f;
 
 		// Apply defauly y position -- so as not to use player's!
 		startPos.y = yOffset;
@@ -48,6 +120,8 @@ public class infiniteTerrainManager : MonoBehaviour {
 	void layTiles(){
 
 		myTiles = new GameObject[numberOftilesX * numberOftilesZ];
+
+		int tNum = -1; // Index number of tiles 0->(total-1).
 
 		for (int x = 0; x < numberOftilesX; x++) {
 			for (int z = 0; z < numberOftilesZ; z++) {
@@ -64,8 +138,8 @@ public class infiniteTerrainManager : MonoBehaviour {
 				newT.GetComponent<perlinTerrain> ().detailScale = detailScale;
 				newT.GetComponent<perlinTerrain> ().generateTerrain ();
 
-
-				myTiles [x * z] = newT;
+				tNum++;
+				myTiles [tNum] = newT;
 			}
 
 		}
@@ -75,8 +149,27 @@ public class infiniteTerrainManager : MonoBehaviour {
 
 	void Update(){
 		if (Input.GetKeyUp (KeyCode.K)) {
-			myTiles [20].transform.Translate (Vector3.up * -1f);
+			//myTiles [20].transform.Translate (Vector3.up * -1f);
+			//rollOn (findYonder());
+
 		}
+
+
+		Vector3 sP = new Vector3 (	getSubjectPos (playerName).x,
+			0f,
+			getSubjectPos (playerName).z);
+
+		Vector3 soP = new Vector3 (	subOrigPos.x,
+			0f,
+			subOrigPos.z);
+
+		if (Vector3.Distance (sP, soP) > 10f * perlinTile.transform.lossyScale.z * numberOftilesX ||
+			Mathf.Abs(getSubjectTrans(playerName).rotation.eulerAngles.y - subOrigYaw) > 1f ) {
+			rollOn (findYonder ());
+			rollOn2();
+			subOrigPos = getSubjectPos (playerName);
+		}
+
 	}
 
 }
