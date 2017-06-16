@@ -122,8 +122,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &263097588
 Transform:
   m_ObjectHideFlags: 0
@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64cdda085c69d42e8968f844256393c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {x: -20, y: 0, z: -20}
-  numberOftilesX: 10
-  numberOftilesZ: 10
+  startPos: {x: -20, y: -10, z: -20}
+  numberOftilesX: 24
+  numberOftilesZ: 24
   detailScale: 25
   detailScale2: 2
   amplitude: 10
@@ -405,7 +405,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1798246980
 Transform:
@@ -432,11 +432,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {x: -20, y: -2, z: 20}
-  numberOftilesX: 4
-  numberOftilesZ: 4
+  numberOftilesX: 12
+  numberOftilesZ: 12
   detailScale: 25
   detailScale2: 3
-  amplitude: 15
+  amplitude: 6
   amplitude2: 3
   seed: 1984
   waveSpeed: 0.004

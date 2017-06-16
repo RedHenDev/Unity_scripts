@@ -73,7 +73,8 @@ public class infiniteTerrainManager : MonoBehaviour {
 					            myTiles [x].transform.position.z);
 
 				// Measure distance between perlin tile and player...
-				newDist = Vector3.SqrMagnitude (sP - tP);
+				//newDist = Vector3.SqrMagnitude (sP - tP);
+			newDist = Vector3.Distance(sP, tP);
 
 				// Record measured distance if greatest distance so far...
 				if (newDist > dist) {
@@ -93,11 +94,11 @@ public class infiniteTerrainManager : MonoBehaviour {
 
 
 		Vector3 sForward = new Vector3 (getSubjectTrans (playerName).forward.x, 0f, getSubjectTrans (playerName).forward.z);
-
+		sForward.Normalize ();
 
 		myTiles [_whichTile].transform.position = getSubjectPos (playerName);
-		myTiles [_whichTile].transform.Translate(sForward * 
-			(10f * perlinTile.transform.lossyScale.z));
+		//myTiles [_whichTile].transform.Translate(sForward * 
+			//(10f * perlinTile.transform.lossyScale.z));
 
 		myTiles[_whichTile].transform.position = new Vector3(	myTiles[_whichTile].transform.position.x,
 			originalY,
@@ -114,8 +115,8 @@ public class infiniteTerrainManager : MonoBehaviour {
 		float yOffset = originalY = startPos.y;	// Record default y position (do not use player's!)
 
 		startPos = getSubjectPos (playerName);
-		startPos.x -= (numberOftilesX * 10f * perlinTile.transform.lossyScale.x) / 2f;
-		startPos.z -= (numberOftilesZ * 10f * perlinTile.transform.lossyScale.z) / 2f;
+		startPos.x -= (numberOftilesX * 10f * perlinTile.transform.lossyScale.x) / 2;
+		startPos.z -= (numberOftilesZ * 10f * perlinTile.transform.lossyScale.z) / 2;
 
 		// Apply defauly y position -- so as not to use player's!
 		startPos.y = yOffset;
@@ -168,10 +169,17 @@ public class infiniteTerrainManager : MonoBehaviour {
 			0f,
 			subOrigPos.z);
 
-		if (Vector3.Distance (soP, sP) > 10f * perlinTile.transform.lossyScale.z * numberOftilesX ||
-			Mathf.Abs(getSubjectTrans(playerName).rotation.eulerAngles.y - subOrigYaw) > 12f ) {
+//		if (Vector3.Distance (soP, sP) > 10f * perlinTile.transform.lossyScale.z * 0.5f ||
+//			(getSubjectTrans(playerName).rotation.eulerAngles.y - subOrigYaw) > 120f ) {
+//			rollOn (findYonder ());
+//			rollOn2();
+//			subOrigPos = getSubjectPos (playerName);
+//		}
+
+		if (Vector3.Distance (soP, sP) > 1f ||
+						Mathf.Abs(getSubjectTrans(playerName).rotation.y - subOrigYaw) > 10f ) {
 			rollOn (findYonder ());
-			rollOn2();
+			//rollOn2();
 			subOrigPos = getSubjectPos (playerName);
 		}
 
