@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,8 +32,10 @@ public class infiniteTerrainManager : MonoBehaviour {
 	void Start () {
 		//this.transform.position = startPos;
 
+		originalY = startPos.y; 
 		if (centreOnSubject)
 			centreTerrainOnSubject ();
+		
 
 		// Record original pos of subject, so that we know
 		// how far they have moved, so as to trigger new
@@ -63,25 +65,25 @@ public class infiniteTerrainManager : MonoBehaviour {
 		float newDist = 0f;
 
 		Vector3 sP = new Vector3 (	getSubjectPos (playerName).x,
-			            			 0f,
-			             			getSubjectPos (playerName).z);
+			0f,
+			getSubjectPos (playerName).z);
 
 		for (int x = 0; x < numberOftilesX * numberOftilesZ; x++) {
 
-				Vector3 tP = new Vector3 (myTiles [x].transform.position.x,
-					            0f,
-					            myTiles [x].transform.position.z);
+			Vector3 tP = new Vector3 (myTiles [x].transform.position.x,
+				0f,
+				myTiles [x].transform.position.z);
 
-				// Measure distance between perlin tile and player...
-				//newDist = Vector3.SqrMagnitude (sP - tP);
+			// Measure distance between perlin tile and player...
+			//newDist = Vector3.SqrMagnitude (sP - tP);
 			newDist = Vector3.Distance(sP, tP);
 
-				// Record measured distance if greatest distance so far...
-				if (newDist > dist) {
-					dist = newDist;
-					whichTile = x;
-				}
+			// Record measured distance if greatest distance so far...
+			if (newDist > dist) {
+				dist = newDist;
+				whichTile = x;
 			}
+		}
 
 		// Move farthest perlin tile to 'grid' position in front of subject...
 		//rollOn(whichTile);
@@ -98,7 +100,7 @@ public class infiniteTerrainManager : MonoBehaviour {
 
 		myTiles [_whichTile].transform.position = getSubjectPos (playerName);
 		//myTiles [_whichTile].transform.Translate(sForward * 
-			//(10f * perlinTile.transform.lossyScale.z));
+		//(10f * perlinTile.transform.lossyScale.z));
 
 		myTiles[_whichTile].transform.position = new Vector3(	myTiles[_whichTile].transform.position.x,
 			originalY,
@@ -108,15 +110,39 @@ public class infiniteTerrainManager : MonoBehaviour {
 	}
 
 	void rollOn2(){
-		
+		// The idea here is to move the entire grid of perlin tiles in the direction
+		// the player is facing.
+		centreTerrainOnSubject();
+		relayTiles ();
 	}
 
+	void relayTiles(){
+		int tNum = -1; // Index number of tiles 0->(total-1).
+
+		for (int x = 0; x < numberOftilesX; x++) {
+			for (int z = 0; z < numberOftilesZ; z++) {
+
+				tNum++;
+				myTiles [tNum].transform.position = startPos;
+				myTiles[tNum].transform.Translate (Vector3.forward * z * 10f * myTiles[tNum].transform.lossyScale.z);
+				myTiles[tNum].transform.Translate (Vector3.right * x * 10f * myTiles[tNum].transform.lossyScale.x);
+
+
+				myTiles [tNum].GetComponent<perlinTerrain> ().generateTerrain ();
+
+	
+			}
+
+		}
+	}
+
+
 	void centreTerrainOnSubject(){
-		float yOffset = originalY = startPos.y;	// Record default y position (do not use player's!)
+		float yOffset = originalY;	// Record default y position (do not use player's!)
 
 		startPos = getSubjectPos (playerName);
-		startPos.x -= (numberOftilesX * 10f * perlinTile.transform.lossyScale.x) / 2;
-		startPos.z -= (numberOftilesZ * 10f * perlinTile.transform.lossyScale.z) / 2;
+		startPos.x -= ((numberOftilesX-1) * 10f * perlinTile.transform.lossyScale.x) / 2;
+		startPos.z -= ((numberOftilesZ-1) * 10f * perlinTile.transform.lossyScale.z) / 2;
 
 		// Apply defauly y position -- so as not to use player's!
 		startPos.y = yOffset;
@@ -157,10 +183,17 @@ public class infiniteTerrainManager : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.K)) {
 			//myTiles [20].transform.Translate (Vector3.up * -1f);
 			//rollOn (findYonder());
-
+			//rollOn2();
 		}
 
 
+		if (Time.frameCount % 100 == 0)
+			checkTerrain ();
+
+	}
+
+
+	void checkTerrain(){
 		Vector3 sP = new Vector3 (	getSubjectPos (playerName).x,
 			0f,
 			getSubjectPos (playerName).z);
@@ -169,20 +202,19 @@ public class infiniteTerrainManager : MonoBehaviour {
 			0f,
 			subOrigPos.z);
 
-//		if (Vector3.Distance (soP, sP) > 10f * perlinTile.transform.lossyScale.z * 0.5f ||
-//			(getSubjectTrans(playerName).rotation.eulerAngles.y - subOrigYaw) > 120f ) {
-//			rollOn (findYonder ());
-//			rollOn2();
-//			subOrigPos = getSubjectPos (playerName);
-//		}
+		//		if (Vector3.Distance (soP, sP) > 10f * perlinTile.transform.lossyScale.z * 0.5f ||
+		//			(getSubjectTrans(playerName).rotation.eulerAngles.y - subOrigYaw) > 120f ) {
+		//			rollOn (findYonder ());
+		//			rollOn2();
+		//			subOrigPos = getSubjectPos (playerName);
+		//		}
 
-		if (Vector3.Distance (soP, sP) > 1f ||
-						Mathf.Abs(getSubjectTrans(playerName).rotation.y - subOrigYaw) > 10f ) {
-			rollOn (findYonder ());
-			//rollOn2();
+		if (Vector3.Distance (soP, sP) > (10f * perlinTile.transform.lossyScale.z * numberOftilesZ)/3) {
+			//rollOn (findYonder ());
+
+			rollOn2();
 			subOrigPos = getSubjectPos (playerName);
 		}
-
 	}
 
 }
