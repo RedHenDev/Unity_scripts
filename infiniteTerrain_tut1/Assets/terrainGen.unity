@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {x: -20, y: -10, z: -20}
-  numberOftilesX: 24
-  numberOftilesZ: 24
+  numberOftilesX: 4
+  numberOftilesZ: 4
   detailScale: 25
   detailScale2: 2
   amplitude: 10
@@ -432,8 +432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {x: -20, y: -2, z: 20}
-  numberOftilesX: 12
-  numberOftilesZ: 12
+  numberOftilesX: 4
+  numberOftilesZ: 4
   detailScale: 25
   detailScale2: 3
   amplitude: 6

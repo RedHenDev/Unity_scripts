@@ -76,7 +76,7 @@ public class theHillsAreAlive : MonoBehaviour {
 
 	void Update () {
 	
-		if (Input.GetKeyUp (KeyCode.Space))
+		if (Input.GetKeyUp (KeyCode.U))
 			isMoving = !isMoving;
 			
 

@@ -138,14 +138,14 @@ public class infiniteTerrainManager : MonoBehaviour {
 
 
 	void centreTerrainOnSubject(){
-		float yOffset = originalY;	// Record default y position (do not use player's!)
+		//float yOffset = originalY;	// Record default y position (do not use player's!)
 
 		startPos = getSubjectPos (playerName);
 		startPos.x -= ((numberOftilesX-1) * 10f * perlinTile.transform.lossyScale.x) / 2;
 		startPos.z -= ((numberOftilesZ-1) * 10f * perlinTile.transform.lossyScale.z) / 2;
 
 		// Apply defauly y position -- so as not to use player's!
-		startPos.y = yOffset;
+		startPos.y = originalY;
 	}
 
 

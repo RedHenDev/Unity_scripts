@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 507, y: 471}
   m_MaxSize: {x: 14002, y: 14021}
   vertical: 0
-  controlID: 6473
+  controlID: 9755
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 22.00035
-    y: 94.00021
+    x: 52.00035
+    y: 97.00021
     width: 735
     height: 432
   m_MaximizeOnPlay: 1
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 230, y: 471}
   m_MaxSize: {x: 10000, y: 14021}
   vertical: 1
-  controlID: 6474
+  controlID: 9756
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,19 +173,19 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 22.00035
-    y: 94.00021
+    x: 52.00035
+    y: 97.00021
     width: 735
     height: 432
   m_SceneLighting: 1
-  lastFramingTime: 6007.985089063644
+  lastFramingTime: 4137.620010972023
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 46.275085, y: 3.2075367, z: 303.27933}
+    m_Target: {x: 1060.9486, y: 6.081833, z: 592.2256}
     speed: 2
-    m_Value: {x: 46.275085, y: 3.2075367, z: 303.27933}
+    m_Value: {x: 1060.9486, y: 6.081833, z: 592.2256}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -208,13 +208,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.38232055, y: -0.3097828, z: 0.13778363, w: 0.85958207}
+    m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
     speed: 2
-    m_Value: {x: -0.38232055, y: 0.3097828, z: -0.13778363, w: -0.8595821}
+    m_Value: {x: -0.7071068, y: 0, z: -0, w: -0.7071068}
   m_Size:
-    m_Target: 37.355316
+    m_Target: 625.043
     speed: 2
-    m_Value: 37.355316
+    m_Value: 625.043
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -299,8 +299,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 22.00035
-    y: 547.0001
+    x: 52.00035
+    y: 550.0001
     width: 735
     height: 254
   m_SearchFilter:
@@ -315,19 +315,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/3DTerrain_tutorial
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/3DTerrain_tutorial
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/bnew/Documents/Unity_scripts/infiniteTerrain_tut1
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6a260000
-    m_LastClickedID: 9834
-    m_ExpandedIDs: 000000006a2600007026000082260000fc260000a6270000a8270000be280000102900005a29000000ca9a3bffffff7f
+    m_SelectedIDs: 80260000
+    m_LastClickedID: 9856
+    m_ExpandedIDs: 000000006a260000702600008026000082260000fc260000a6270000a8270000be280000102900005a29000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -355,7 +355,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006a2600007026000082260000fc260000a6270000a8270000be280000102900005a29000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000006a260000702600008026000082260000fc260000a6270000a8270000be280000102900005a29000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -380,8 +380,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 362a0000
-    m_LastClickedInstanceID: 10806
+    m_SelectedInstanceIDs: 445cffff
+    m_LastClickedInstanceID: -41916
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 00000000
     m_RenameOverlay:
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 271}
   m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 6543
+  controlID: 9827
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -507,8 +507,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 761.0001
-    y: 94.00023
+    x: 791.0001
+    y: 97.00023
     width: 304
     height: 463
   m_ScrollPosition: {x: 0, y: 0}
@@ -565,15 +565,15 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 761.0001
-    y: 578.0001
+    x: 791.0001
+    y: 581.0001
     width: 304
     height: 223
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 362a0000
-    m_LastClickedID: 10806
-    m_ExpandedIDs: 1cfcffff00000000
+    m_SelectedIDs: 445cffff
+    m_LastClickedID: -41916
+    m_ExpandedIDs: 385cffff465cffff1cfcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
