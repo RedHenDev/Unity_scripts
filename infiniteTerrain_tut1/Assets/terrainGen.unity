@@ -252,7 +252,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.z
@@ -434,9 +434,9 @@ MonoBehaviour:
   startPos: {x: -20, y: -2, z: 20}
   numberOftilesX: 12
   numberOftilesZ: 12
-  detailScale: 25
+  detailScale: 222
   detailScale2: 3
-  amplitude: 6
+  amplitude: 111
   amplitude2: 3
   seed: 1984
   waveSpeed: 0.004

@@ -95,14 +95,17 @@ public class infiniteTerrainManager : MonoBehaviour {
 	// Moves given perlin tile to correct position in front of subject.
 	void rollOn(int _whichTile){
 
-		Vector3 sForward = new Vector3 (getSubjectTrans (playerName).forward.x, 0f, getSubjectTrans (playerName).forward.z);
+		Vector3 sForward = new Vector3 
+			(getSubjectTrans (playerName).
+			forward.x, 0f, getSubjectTrans (playerName).forward.z);
 		sForward.Normalize ();
 
 		myTiles [_whichTile].transform.position = getSubjectPos (playerName);
-		//myTiles [_whichTile].transform.Translate(sForward * 
-		//latestDist * 0.5f);
+		myTiles [_whichTile].transform.Translate(sForward * 
+			perlinTile.transform.lossyScale.z * 10f);
 
-		myTiles[_whichTile].transform.position = new Vector3(	myTiles[_whichTile].transform.position.x,
+		myTiles[_whichTile].transform.position = 
+			new Vector3(myTiles[_whichTile].transform.position.x,
 			originalY,
 			myTiles[_whichTile].transform.position.z);
 
@@ -187,7 +190,7 @@ public class infiniteTerrainManager : MonoBehaviour {
 		}
 
 
-		if (Time.frameCount % 100 == 0)
+		if (Time.frameCount % 4 == 0)
 			checkTerrain ();
 
 	}
@@ -210,9 +213,9 @@ public class infiniteTerrainManager : MonoBehaviour {
 		//		}
 
 		if (Vector3.Distance (soP, sP) > 
-			1f * perlinTile.transform.lossyScale.z ||
+			perlinTile.transform.lossyScale.z ||
 			Mathf.Abs(getSubjectTrans(playerName).
-			rotation.eulerAngles.y - subOrigYaw) > 12f) {
+			rotation.eulerAngles.y - subOrigYaw) > 3f) {
 			rollOn (findYonder ());
 
 			//rollOn2();
