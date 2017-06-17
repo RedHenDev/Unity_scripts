@@ -16,7 +16,9 @@ public class infiniteTerrainManager : MonoBehaviour {
 	public float seed = 1f;
 	public float waveSpeed = 0.004f;
 
-	public GameObject perlinTile;
+	public GameObject perlinTile = null;
+
+	private float latestDist = 0f;
 
 	public bool centreOnSubject = false;
 
@@ -80,7 +82,7 @@ public class infiniteTerrainManager : MonoBehaviour {
 
 			// Record measured distance if greatest distance so far...
 			if (newDist > dist) {
-				dist = newDist;
+				latestDist = dist = newDist;
 				whichTile = x;
 			}
 		}
@@ -93,14 +95,12 @@ public class infiniteTerrainManager : MonoBehaviour {
 	// Moves given perlin tile to correct position in front of subject.
 	void rollOn(int _whichTile){
 
-
-
 		Vector3 sForward = new Vector3 (getSubjectTrans (playerName).forward.x, 0f, getSubjectTrans (playerName).forward.z);
 		sForward.Normalize ();
 
 		myTiles [_whichTile].transform.position = getSubjectPos (playerName);
 		//myTiles [_whichTile].transform.Translate(sForward * 
-		//(10f * perlinTile.transform.lossyScale.z));
+		//latestDist * 0.5f);
 
 		myTiles[_whichTile].transform.position = new Vector3(	myTiles[_whichTile].transform.position.x,
 			originalY,
@@ -209,10 +209,15 @@ public class infiniteTerrainManager : MonoBehaviour {
 		//			subOrigPos = getSubjectPos (playerName);
 		//		}
 
-		if (Vector3.Distance (soP, sP) > (10f * perlinTile.transform.lossyScale.z * numberOftilesZ)/3) {
-			//rollOn (findYonder ());
+		if (Vector3.Distance (soP, sP) > 
+			1f * perlinTile.transform.lossyScale.z ||
+			Mathf.Abs(getSubjectTrans(playerName).
+			rotation.eulerAngles.y - subOrigYaw) > 12f) {
+			rollOn (findYonder ());
 
-			rollOn2();
+			//rollOn2();
+			subOrigYaw = getSubjectTrans(playerName).
+				rotation.eulerAngles.y;
 			subOrigPos = getSubjectPos (playerName);
 		}
 	}

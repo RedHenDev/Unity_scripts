@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class terrainBrain : MonoBehaviour {
 
+	public bool infiniteTerrain = true;
+
 	public int xTiles = 4;
 	public int zTiles = 4;
 
@@ -17,13 +19,21 @@ public class terrainBrain : MonoBehaviour {
 
 	private Vector3 recordPpos;
 
-
 	private GameObject[] myTiles; 
+
+	[Tooltip("Press 'u' in game to toggle 'running' terrain.")]
+	public float runningSeedSpeed = 0.001f;
+
+	[Tooltip("Terrain's x_Height, y_Gradient, z_Seed.")]
+	public Vector3[] tHGS;
 
 	void Start () {
 
 		originalY = terrainO.y;
-		recordPpos = returnPlayerPos (playerName);
+		// Record player position, zero-ing out Y.
+		Vector3 playerP = returnPlayerPos (playerName);
+		playerP = new Vector3 (playerP.x, 0f, playerP.z);
+		recordPpos = playerP;
 		centreTerrainOnPlayer ();
 
 		layoutTerrain ();
@@ -39,10 +49,10 @@ public class terrainBrain : MonoBehaviour {
 		terrainO = pPos;
 
 		terrainO.x -= (10f * tilePrefab.transform.lossyScale.x *
-		(xTiles - 1)) / 2;
+			(xTiles)) / 2;
 
 		terrainO.z -= (10f * tilePrefab.transform.lossyScale.z *
-			(zTiles - 1)) / 2;
+			(zTiles)) / 2;
 
 		terrainO.y = originalY; 
 
@@ -77,7 +87,8 @@ public class terrainBrain : MonoBehaviour {
 
 				myTiles [iNum].transform.position = myPos;
 
-				myTiles[iNum].GetComponent<theHillsAreAlive> ().generatePerlinHills ();
+				myTiles[iNum].GetComponent<theHillsAreAlive> ()
+					.generatePerlinHills ();
 
 			}
 
@@ -110,10 +121,25 @@ public class terrainBrain : MonoBehaviour {
 				GameObject newT = GameObject.Instantiate (tilePrefab, 
 					myPos, Quaternion.identity);
 
-//				newT.transform.Translate (Vector3.right * x * 10f *
-//					tilePrefab.transform.lossyScale.x);
-//				newT.transform.Translate (Vector3.forward * z * 10f *
-//					tilePrefab.transform.lossyScale.z);
+				// Apply terrain properties via array.
+				// First, make sure the tile's own array
+				// of terrain properties is correct size.
+				newT.GetComponent<theHillsAreAlive> ()
+					.tHGS = new Vector3 [tHGS.Length];
+				// Next, set 'running' terrain speed.
+				newT.GetComponent<theHillsAreAlive> ()
+					.runningSeedSpeed = runningSeedSpeed;
+				for (int o = 0; o < tHGS.Length; o++) {
+						// Height.
+						newT.GetComponent<theHillsAreAlive> ()
+						.tHGS [o].x = tHGS [o].x;
+						// Gradient.
+						newT.GetComponent<theHillsAreAlive> ()
+						.tHGS [o].y = tHGS [o].y;
+						// Seed.
+						newT.GetComponent<theHillsAreAlive> ()
+						.tHGS [o].z = tHGS [o].z;
+				}
 
 				newT.GetComponent<theHillsAreAlive> ().generatePerlinHills ();
 
@@ -130,18 +156,26 @@ public class terrainBrain : MonoBehaviour {
 
 
 	void Update () {
+
+		if (Time.frameCount % 10 == 0 &&
+		infiniteTerrain)
 		checkPlayerWander ();
 	}
 
 
 	void checkPlayerWander(){
 
+
+		Vector3 playerP = returnPlayerPos (playerName);
+		playerP = new Vector3 (playerP.x, 0f, playerP.z);
+
+
 		float dist = 
-			Vector3.Distance (returnPlayerPos (playerName),
+			Vector3.Distance (playerP,
 			recordPpos);
 
-		if (dist > 10f * tilePrefab.transform.localScale.z) {
-			recordPpos = returnPlayerPos (playerName);
+		if (dist >= (10f * tilePrefab.transform.localScale.z * zTiles)/4) {
+			recordPpos = playerP;
 			centreTerrainOnPlayer ();
 			relayTerrain ();
 		}

@@ -7,21 +7,31 @@ public class theHillsAreAlive : MonoBehaviour {
 
 	private Mesh myMeshFilter = null;
 
+	// Terrain properties.
+	[HideInInspector]
 	public float gradient = 5f;
+	[HideInInspector]
 	public float height = 5f;
+	[HideInInspector]
+	public float seed = 0f;
+	// We also now need a 'running seed'
+	// as a separate variable, since the
+	// seed itself will be reset each time
+	// the Perlin noise is applied.
+	private float runningSeed = 0f;
+	[HideInInspector]
+	public float runningSeedSpeed = 0.001f;
+	[HideInInspector]
+	public Vector3[] tHGS;
 
 	private MeshCollider myCollider = null;
 
-	public float seed = 0f;
-
 	private Vector3[] vertices;
 
+	[HideInInspector]
 	public bool isMoving = false;
 
 	void Start () {
-
-
-
 
 		//generatePerlinHills ();
 
@@ -52,15 +62,24 @@ public class theHillsAreAlive : MonoBehaviour {
 
 		for (int i = 0; i < vertices.Length; i++) {
 
+			// Apply array of terrain properties.
+			// Zero out the y component first, else
+			// terrain will stretch out of shape over time.
+			vertices [i].y = 0f;
+			for (int o = 0; o < tHGS.Length; o++) {
+				height = tHGS [o].x;
+				gradient = tHGS [o].y;
+				seed = tHGS [o].z;
 
-			pX = (1000000 + this.transform.position.x
+				// Perlin noise!
+				pX = (1000000 + this.transform.position.x
 				+ vertices [i].x * this.transform.lossyScale.x) / gradient; 
-			pZ = (1000000 + this.transform.position.z
-				+ vertices [i].z * this.transform.lossyScale.z) / gradient + seed;
+				pZ = (1000000 + this.transform.position.z
+					+ vertices [i].z * this.transform.lossyScale.z) / gradient + seed + runningSeed;
 
-			vertices [i].y = Mathf.PerlinNoise 
-				(pX , pZ ) * height; 
-
+				vertices [i].y += -height/2 + Mathf.PerlinNoise 
+					(pX, pZ) * height; 
+			}
 
 		}
 
@@ -81,7 +100,7 @@ public class theHillsAreAlive : MonoBehaviour {
 			
 
 		if (isMoving) {
-			seed += 0.03f;
+			runningSeed += runningSeedSpeed;
 			generatePerlinHills ();
 		}
 
