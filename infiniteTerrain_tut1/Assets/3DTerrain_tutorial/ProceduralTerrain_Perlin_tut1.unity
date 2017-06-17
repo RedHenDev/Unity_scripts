@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.41176474, g: 0.6313726, b: 0.9960785, a: 1}
   m_FogMode: 2
-  m_FogDensity: 0.007
+  m_FogDensity: 0.003
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -209,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &745664048
 AudioListener:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ Prefab:
     - target: {fileID: 20738878434074808, guid: e00b8d91e89bc4c33a88a5d014090a59,
         type: 2}
       propertyPath: far clip plane
-      value: 1000
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: 54958791448989396, guid: e00b8d91e89bc4c33a88a5d014090a59,
         type: 2}
@@ -392,7 +392,7 @@ Prefab:
     - target: {fileID: 114123169067288650, guid: e00b8d91e89bc4c33a88a5d014090a59,
         type: 2}
       propertyPath: movementSettings.ForwardSpeed
-      value: 44
+      value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 136385219057215666, guid: e00b8d91e89bc4c33a88a5d014090a59,
         type: 2}
@@ -422,7 +422,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1934448538489138, guid: e00b8d91e89bc4c33a88a5d014090a59, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 54785674471825230, guid: e00b8d91e89bc4c33a88a5d014090a59, type: 2}
@@ -678,7 +678,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 7ffe910e8731e42a294e4c583c124571, type: 2}
     - target: {fileID: 100042, guid: 0e7ee4df08df88c4880f43398f9ad2c2, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 0e7ee4df08df88c4880f43398f9ad2c2, type: 2}
       propertyPath: m_Topspeed
@@ -867,11 +867,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infiniteTerrain: 1
-  xTiles: 6
-  zTiles: 6
+  xTiles: 8
+  zTiles: 8
   tilePrefab: {fileID: 1607030636571256, guid: f03fa9aee6411438d9c6c85915789965, type: 2}
   terrainO: {x: 0, y: -100, z: 0}
-  playerName: Car
+  playerName: eggBod
   runningSeedSpeed: 0.01
   tHGS:
   - {x: 111, y: 50, z: 1}
@@ -916,11 +916,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infiniteTerrain: 1
-  xTiles: 16
-  zTiles: 16
+  xTiles: 8
+  zTiles: 8
   tilePrefab: {fileID: 1443495989342818, guid: a6021085e17814029b5f7ca6e13c355f, type: 2}
   terrainO: {x: 0, y: -50, z: 0}
-  playerName: Car
+  playerName: eggBod
   runningSeedSpeed: 0.01
   tHGS:
   - {x: 222, y: 300, z: 2017}
@@ -1046,7 +1046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1613352743
 MonoBehaviour:
   m_ObjectHideFlags: 0

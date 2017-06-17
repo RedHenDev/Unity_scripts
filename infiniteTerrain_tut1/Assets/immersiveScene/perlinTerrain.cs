@@ -8,6 +8,7 @@ public class perlinTerrain : MonoBehaviour {
 
 	public float seed = 1000;
 	public float waveSpeed = 0.004f;
+	private float runningSeed = 0f;
 
 	public float detailScale = 3.2f;
 	public float detailScale2 = 25f;
@@ -36,12 +37,14 @@ public class perlinTerrain : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKeyUp (KeyCode.Space))
+		if (Input.GetKeyUp (KeyCode.U))
 			perlinMoving = !perlinMoving;
 		//if (Time.frameCount % 4 == 0)
 
-		if (perlinMoving)
+		if (perlinMoving) {
+			runningSeed += waveSpeed;
 			generateTerrain ();
+		}
 	}
 
 
@@ -67,8 +70,6 @@ public class perlinTerrain : MonoBehaviour {
 		if (myMesh == null)
 			getComponents ();
 
-		//seed+= waveSpeed;
-
 		vertices = myMesh.vertices;
 
 		float pX = 0;
@@ -83,8 +84,8 @@ public class perlinTerrain : MonoBehaviour {
 			pX = pX2 = (1000000 + this.transform.position.x + vertices [i].x * this.transform.lossyScale.x);
 			pZ = pZ2 = (1000000 + this.transform.position.z + vertices [i].z * this.transform.lossyScale.z);
 
-			pX = pX /detailScale + seed;
-			pX2 = pX2 /detailScale2 + seed;
+			pX = pX /detailScale + seed + runningSeed;
+			pX2 = pX2 /detailScale2 + seed + runningSeed;
 			pZ = pZ /detailScale;
 			pZ2 = pZ2 /detailScale2;
 

@@ -19,7 +19,11 @@ public class terrainBrain : MonoBehaviour {
 
 	private Vector3 recordPpos;
 
-	private GameObject[] myTiles; 
+	private GameObject[] myTiles;
+
+	// For organising relaying of terrain, one tile per frame.
+	private bool remakingTerrain = false;
+	private int tileNum = 0;
 
 	[Tooltip("Press 'u' in game to toggle 'running' terrain.")]
 	public float runningSeedSpeed = 0.001f;
@@ -65,6 +69,50 @@ public class terrainBrain : MonoBehaviour {
 
 	}
 
+	void relaySmartTerrain(){
+
+		int iNum = -1;
+		bool breakNow = false;
+
+		for (int x = 0; x < xTiles; x++) {
+			for (int z = 0; z < zTiles; z++) {
+
+				iNum++;
+
+				if (tileNum == iNum) { 
+
+					
+					Vector3 myPos = terrainO;
+
+					myPos.x += x * 10f *
+					tilePrefab.transform.lossyScale.x;
+
+					myPos.z += z * 10f *
+					tilePrefab.transform.lossyScale.z;
+
+
+
+					myTiles [iNum].transform.position = myPos;
+
+					myTiles [iNum].GetComponent<theHillsAreAlive> ()
+					.generatePerlinHills ();
+					breakNow = true;
+					tileNum++;
+				}
+				if (breakNow)
+					break;
+			}
+			if (breakNow)
+				break;
+		}
+
+		// Make sure we reset makingTerrain and tileNum if finished all tiles.
+		if (tileNum >= myTiles.Length - 1) {
+			remakingTerrain = false;
+			tileNum = 0;
+		}
+
+	}
 
 	void relayTerrain(){
 
@@ -72,7 +120,8 @@ public class terrainBrain : MonoBehaviour {
 
 		for (int x = 0; x < xTiles; x++) {
 			for (int z = 0; z < zTiles; z++) {
-				// Instantiate our prefab.
+
+				iNum++;
 
 				Vector3 myPos = terrainO;
 
@@ -82,9 +131,7 @@ public class terrainBrain : MonoBehaviour {
 				myPos.z += z * 10f *
 					tilePrefab.transform.lossyScale.z;
 
-				myPos.y = terrainO.y;
-
-				iNum++;
+			
 
 				myTiles [iNum].transform.position = myPos;
 
@@ -158,29 +205,34 @@ public class terrainBrain : MonoBehaviour {
 
 	void Update () {
 
-		if (Time.frameCount % 10 == 0 &&
-		infiniteTerrain)
+		//if (Time.frameCount % 10 == 0 &&
+		//infiniteTerrain)
 		checkPlayerWander ();
+
 	}
 
 
 	void checkPlayerWander(){
 
-
 		Vector3 playerP = returnPlayerPos (playerName);
 		playerP = new Vector3 (playerP.x, 0f, playerP.z);
-
 
 		float dist = 
 			Vector3.Distance (playerP,
 			recordPpos);
 
-		if (dist >= (10f * tilePrefab.transform.localScale.z * zTiles)/4) {
+		if (!remakingTerrain && dist >= 
+			(10f * tilePrefab.transform.localScale.z * zTiles)/4) {
 			recordPpos = playerP;
 			centreTerrainOnPlayer ();
+			//tileNum = 0;	// Start again!
 			relayTerrain ();
+			//remakingTerrain = true;
 		}
-			
+
+		if (remakingTerrain) {
+			relaySmartTerrain ();
+		}
 
 	}
 

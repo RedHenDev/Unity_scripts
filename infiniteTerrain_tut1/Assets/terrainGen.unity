@@ -148,14 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64cdda085c69d42e8968f844256393c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {x: -20, y: -10, z: -20}
+  startPos: {x: -20, y: -5, z: -20}
   numberOftilesX: 12
   numberOftilesZ: 12
   detailScale: 25
   detailScale2: 2
   amplitude: 10
   amplitude2: 5
-  seed: 1988
+  seed: 22222
   waveSpeed: 0.004
   perlinTile: {fileID: 1588243533410458, guid: c78cad911d2a24c54b7dbfce93774045, type: 2}
   centreOnSubject: 1
@@ -252,7 +252,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 200
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_LocalPosition.z
@@ -434,9 +434,9 @@ MonoBehaviour:
   startPos: {x: -20, y: -2, z: 20}
   numberOftilesX: 12
   numberOftilesZ: 12
-  detailScale: 222
+  detailScale: 25
   detailScale2: 3
-  amplitude: 111
+  amplitude: 8
   amplitude2: 3
   seed: 1984
   waveSpeed: 0.004

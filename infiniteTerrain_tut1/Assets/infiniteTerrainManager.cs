@@ -190,7 +190,7 @@ public class infiniteTerrainManager : MonoBehaviour {
 		}
 
 
-		if (Time.frameCount % 4 == 0)
+		//if (Time.frameCount % 60 == 0)
 			checkTerrain ();
 
 	}
@@ -213,9 +213,9 @@ public class infiniteTerrainManager : MonoBehaviour {
 		//		}
 
 		if (Vector3.Distance (soP, sP) > 
-			perlinTile.transform.lossyScale.z ||
+			(perlinTile.transform.lossyScale.z * 10f)/2 ||
 			Mathf.Abs(getSubjectTrans(playerName).
-			rotation.eulerAngles.y - subOrigYaw) > 3f) {
+			rotation.eulerAngles.y - subOrigYaw) > 5f) {
 			rollOn (findYonder ());
 
 			//rollOn2();
