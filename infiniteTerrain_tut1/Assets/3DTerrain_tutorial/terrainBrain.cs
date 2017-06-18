@@ -5,6 +5,7 @@ using UnityEngine;
 public class terrainBrain : MonoBehaviour {
 
 	public bool infiniteTerrain = true;
+	public bool paintingTerrain = false;
 
 	public int xTiles = 4;
 	public int zTiles = 4;
@@ -12,6 +13,7 @@ public class terrainBrain : MonoBehaviour {
 	public GameObject tilePrefab = null;
 
 	private float originalY;
+	private float subOrigYaw;
 
 	public Vector3 terrainO = new Vector3(-20 ,0, 20);
 
@@ -33,6 +35,7 @@ public class terrainBrain : MonoBehaviour {
 
 	void Start () {
 
+		subOrigYaw = returnPlayerTrans (playerName).rotation.eulerAngles.y;
 		originalY = terrainO.y;
 		// Record player position, zero-ing out Y.
 		Vector3 playerP = returnPlayerPos (playerName);
@@ -41,6 +44,7 @@ public class terrainBrain : MonoBehaviour {
 		centreTerrainOnPlayer ();
 
 		layoutTerrain ();
+
 		relayTerrain ();
 	}
 
@@ -64,11 +68,70 @@ public class terrainBrain : MonoBehaviour {
 	}
 
 	Vector3 returnPlayerPos(string _playerName){
-
 		return GameObject.Find (_playerName).transform.position;
-
+	}
+	Transform returnPlayerTrans(string _playerName){
+		return GameObject.Find (_playerName).transform;
 	}
 
+	// Find farthest Perlin tile from player position.
+	int findYonder(){
+
+		// Farthest distance so far...
+		float dist = 0f;
+		int whichTile = 0;
+
+		float newDist = 0f;
+
+		Vector3 sP = returnPlayerPos (playerName);
+		sP.y = 0f;
+
+		for (int x = 0; x < xTiles * zTiles; x++) {
+
+			Vector3 tP = new Vector3 (myTiles [x].transform.position.x,
+				0f,
+				myTiles [x].transform.position.z);
+
+			// Measure distance between perlin tile and player...
+			//newDist = Vector3.SqrMagnitude (sP - tP);
+			newDist = Vector3.Distance(sP, tP);
+
+			// Record measured distance if greatest distance so far...
+			if (newDist > dist) {
+				dist = newDist;
+				whichTile = x;
+			}
+		}
+
+		// Move farthest perlin tile to 'grid' position in front of subject...
+		//paintOn(whichTile);
+		return whichTile;
+	}
+
+	// An alternative method for infinite terrain.
+	// Moves given perlin tile to correct position in front of subject.
+	void paintOn(int _whichTile){
+
+		Vector3 sForward = returnPlayerTrans(playerName).forward;
+		sForward.Normalize ();
+
+		myTiles [_whichTile].transform.position = returnPlayerPos (playerName);
+		myTiles [_whichTile].transform.Translate(sForward * 
+			tilePrefab.transform.lossyScale.z * 10f);
+
+		// Correct for Y.
+		myTiles[_whichTile].transform.position = 
+			new Vector3(myTiles[_whichTile].transform.position.x,
+				originalY,
+				myTiles[_whichTile].transform.position.z);
+
+		myTiles [_whichTile].GetComponent<theHillsAreAlive> ().generatePerlinHills ();
+	}
+
+	// Another alternative method!
+	// Failed. Perhaps all we need is an underlying grid of tiles, which
+	// snap into the holes left? Making the transition seamless?
+	// This way we are only moving 2 tiles per frame update?
 	void relaySmartTerrain(){
 
 		int iNum = -1;
@@ -205,8 +268,9 @@ public class terrainBrain : MonoBehaviour {
 
 	void Update () {
 
-		//if (Time.frameCount % 10 == 0 &&
-		//infiniteTerrain)
+
+		if (Time.frameCount % 10 == 0 &&
+		infiniteTerrain)
 		checkPlayerWander ();
 
 	}
@@ -221,7 +285,23 @@ public class terrainBrain : MonoBehaviour {
 			Vector3.Distance (playerP,
 			recordPpos);
 
-		if (!remakingTerrain && dist >= 
+		// Alternative 'paint on' terrain method for infinite terrain.
+		// This paints a single terrain tile according to the forward
+		// direction of the named player.
+		// Worse than relayTerrain() method below at moment, but potentially much better.
+		if (!remakingTerrain && paintingTerrain && (
+		    dist >= 10f * tilePrefab.transform.lossyScale.z ||
+			Mathf.Abs(returnPlayerTrans(playerName).
+				rotation.eulerAngles.y - subOrigYaw) > 1f)) {
+
+			paintOn (findYonder ());
+
+			subOrigYaw = returnPlayerTrans(playerName).
+				rotation.eulerAngles.y;
+			return;
+		}
+
+		if (!remakingTerrain && ! paintingTerrain && dist >= 
 			(10f * tilePrefab.transform.localScale.z * zTiles)/4) {
 			recordPpos = playerP;
 			centreTerrainOnPlayer ();
@@ -230,9 +310,9 @@ public class terrainBrain : MonoBehaviour {
 			//remakingTerrain = true;
 		}
 
-		if (remakingTerrain) {
-			relaySmartTerrain ();
-		}
+//		if (remakingTerrain) {
+//			relaySmartTerrain ();
+//		}
 
 	}
 

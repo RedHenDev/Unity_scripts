@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\3DTerrain_tutorial\otherStuff\Orbit.cs" />
      <Compile Include="Assets\3DTerrain_tutorial\otherStuff\returnToOP.cs" />
      <Compile Include="Assets\3DTerrain_tutorial\terrainBrain.cs" />
      <Compile Include="Assets\3DTerrain_tutorial\theHillsAreAlive.cs" />

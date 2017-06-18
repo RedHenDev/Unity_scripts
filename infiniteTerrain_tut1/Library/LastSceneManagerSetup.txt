@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/3DTerrain_tutorial/ProceduralTerrain_Perlin_tut1.unity
+- path: Assets/terrainGen.unity
   isLoaded: 1
   isActive: 1

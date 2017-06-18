@@ -151,8 +151,8 @@ MonoBehaviour:
   startPos: {x: -20, y: -5, z: -20}
   numberOftilesX: 12
   numberOftilesZ: 12
-  detailScale: 25
-  detailScale2: 2
+  detailScale: 8
+  detailScale2: 3
   amplitude: 10
   amplitude2: 5
   seed: 22222
@@ -160,6 +160,7 @@ MonoBehaviour:
   perlinTile: {fileID: 1588243533410458, guid: c78cad911d2a24c54b7dbfce93774045, type: 2}
   centreOnSubject: 1
   playerName: Subject
+  paintTerrain: 1
 --- !u!1 &622241002
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +436,7 @@ MonoBehaviour:
   numberOftilesX: 12
   numberOftilesZ: 12
   detailScale: 25
-  detailScale2: 3
+  detailScale2: 25
   amplitude: 8
   amplitude2: 3
   seed: 1984
@@ -443,3 +444,4 @@ MonoBehaviour:
   perlinTile: {fileID: 1955983256479184, guid: 55898f91a76c348f7966250367cac399, type: 2}
   centreOnSubject: 1
   playerName: Subject
+  paintTerrain: 1

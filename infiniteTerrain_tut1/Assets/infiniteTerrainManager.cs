@@ -31,6 +31,10 @@ public class infiniteTerrainManager : MonoBehaviour {
 
 	float originalY = 0;
 
+	// Are we adjusting the entire terrain (rollOn2()), or just one tile using the
+	// 'paint' where I look method (rollOn())?
+	public bool paintTerrain = true;
+
 	void Start () {
 		//this.transform.position = startPos;
 
@@ -197,32 +201,31 @@ public class infiniteTerrainManager : MonoBehaviour {
 
 
 	void checkTerrain(){
-		Vector3 sP = new Vector3 (	getSubjectPos (playerName).x,
-			0f,
-			getSubjectPos (playerName).z);
+		Vector3 sP = new Vector3 (getSubjectPos (playerName).x,
+			             0f,
+			             getSubjectPos (playerName).z);
 
-		Vector3 soP = new Vector3 (	subOrigPos.x,
-			0f,
-			subOrigPos.z);
-
-		//		if (Vector3.Distance (soP, sP) > 10f * perlinTile.transform.lossyScale.z * 0.5f ||
-		//			(getSubjectTrans(playerName).rotation.eulerAngles.y - subOrigYaw) > 120f ) {
-		//			rollOn (findYonder ());
-		//			rollOn2();
-		//			subOrigPos = getSubjectPos (playerName);
-		//		}
-
-		if (Vector3.Distance (soP, sP) > 
-			(perlinTile.transform.lossyScale.z * 10f)/2 ||
-			Mathf.Abs(getSubjectTrans(playerName).
-			rotation.eulerAngles.y - subOrigYaw) > 5f) {
-			rollOn (findYonder ());
-
-			//rollOn2();
-			subOrigYaw = getSubjectTrans(playerName).
-				rotation.eulerAngles.y;
-			subOrigPos = getSubjectPos (playerName);
+		Vector3 soP = new Vector3 (subOrigPos.x,
+			              0f,
+			              subOrigPos.z);
+		
+		if (!paintTerrain){
+			if (Vector3.Distance (soP, sP) > (10f * perlinTile.transform.lossyScale.z) / 4) {
+				rollOn2 ();
+				subOrigPos = getSubjectPos (playerName);
+			}
 		}
+		else if (Vector3.Distance (soP, sP) > 
+				(perlinTile.transform.lossyScale.z * 10f)/4 ||
+				Mathf.Abs(getSubjectTrans(playerName).
+				rotation.eulerAngles.y - subOrigYaw) > 0.5f) {
+				
+					rollOn (findYonder ());
+
+					subOrigYaw = getSubjectTrans(playerName).
+					rotation.eulerAngles.y;
+				subOrigPos = getSubjectPos (playerName);
+				}
 	}
 
 }
