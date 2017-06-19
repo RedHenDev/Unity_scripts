@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 507, y: 471}
   m_MaxSize: {x: 14002, y: 14021}
   vertical: 0
-  controlID: 43970
+  controlID: 3680
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 22.00035
-    y: 94.00021
+    x: 52.00035
+    y: 98.00021
     width: 735
     height: 432
   m_MaximizeOnPlay: 1
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 230, y: 471}
   m_MaxSize: {x: 10000, y: 14021}
   vertical: 1
-  controlID: 43872
+  controlID: 3634
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,8 +173,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 22.00035
-    y: 94.00021
+    x: 44.00035
+    y: 103.00021
     width: 735
     height: 432
   m_SceneLighting: 1
@@ -299,8 +299,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 22.00035
-    y: 547.0001
+    x: 44.00035
+    y: 556.0001
     width: 735
     height: 254
   m_SearchFilter:
@@ -315,19 +315,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/3DTerrain_tutorial/otherStuff
+    - Assets/3DTerrain_tutorial
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/3DTerrain_tutorial/otherStuff
+  - Assets/3DTerrain_tutorial
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/bnew/Documents/Unity_scripts/infiniteTerrain_tut1
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 19}
-    m_SelectedIDs: 1e270000
-    m_LastClickedID: 10014
-    m_ExpandedIDs: 00000000642600006a2600007a2600007c260000fc260000a6270000a8270000c028000012290000542900005c29000000ca9a3bffffff7f
+    m_SelectedIDs: 7c260000
+    m_LastClickedID: 9852
+    m_ExpandedIDs: 00000000662600006c2600007c2600007e26000000270000aa270000ac270000c428000016290000582900006029000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -355,7 +355,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000642600006a2600007a2600007c260000fc260000a6270000a8270000c028000012290000542900005c29000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000662600006c2600007c2600007e26000000270000aa270000ac270000c428000016290000582900006029000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -380,8 +380,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 1e270000
-    m_LastClickedInstanceID: 10014
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 00000000
     m_RenameOverlay:
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 271}
   m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 43971
+  controlID: 3681
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -507,8 +507,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 761.0001
-    y: 94.00023
+    x: 783.0001
+    y: 103.00023
     width: 304
     height: 463
   m_ScrollPosition: {x: 0, y: 0}
@@ -565,15 +565,15 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 761.0001
-    y: 578.0001
+    x: 783.0001
+    y: 587.0001
     width: 304
     height: 223
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1e270000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: c029f5ff50eeffff52eeffff1cfcffff00000000
+    m_ExpandedIDs: 1cfcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -592,7 +592,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 13}
     m_SearchString: 
   m_ExpandedScenes:
-  - terrainGen
+  - ProceduralTerrain_Perlin_tut1
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
