@@ -11,7 +11,7 @@ public class voxelFarm : MonoBehaviour {
 
 	public float amp = 3f;
 	public float frq = 12f;
-	public int seed = 0;
+	public float seed = 0;
 
 	void Start () {
 		generateGrid ();
@@ -43,8 +43,8 @@ public class voxelFarm : MonoBehaviour {
 				oPos.z += z * voxelSize.z;
 
 				// Perlin.
-				oPos.y = Mathf.PerlinNoise(	1000000f + oPos.x/frq, 
-											1000000f + oPos.z/frq + seed) * amp;
+				oPos.y = Mathf.PerlinNoise(	1000000f + (oPos.x * voxelSize.x)/frq, 
+					1000000f + seed + (oPos.z * voxelSize.z)/frq) * amp;
 
 				voxels[i].transform.position = oPos;
 				voxels[i].transform.localScale = voxelSize;
