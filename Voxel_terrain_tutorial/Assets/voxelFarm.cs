@@ -11,7 +11,7 @@ public class voxelFarm : MonoBehaviour {
 
 	public float amp = 3f;
 	public float frq = 12f;
-	public float seed = 0;
+	public float seed = 99;
 
 	void Start () {
 		generateGrid ();
@@ -22,7 +22,7 @@ public class voxelFarm : MonoBehaviour {
 
 		GameObject[] voxels = new GameObject[xVoxels * zVoxels];
 
-		Vector3 oPos = transform.position;
+		Vector3 oPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
 
 		int i = -1;
 
@@ -34,7 +34,7 @@ public class voxelFarm : MonoBehaviour {
 
 				voxels[i] = GameObject.CreatePrimitive (PrimitiveType.Cube);
 
-				oPos = transform.position;
+				oPos = this.transform.position;
 				oPos.y = 0f;
 				oPos.x -= xVoxels/2 * voxelSize.x;
 				oPos.z -= zVoxels/2 * voxelSize.z;
@@ -42,9 +42,16 @@ public class voxelFarm : MonoBehaviour {
 				oPos.x += x * voxelSize.x;
 				oPos.z += z * voxelSize.z;
 
+				// Snap to grid.
+				oPos.x = Mathf.Round (oPos.x);
+				oPos.z = Mathf.Round (oPos.z);
+
 				// Perlin.
-				oPos.y = Mathf.PerlinNoise(	1000000f + (oPos.x * voxelSize.x)/frq, 
-					1000000f + seed + (oPos.z * voxelSize.z)/frq) * amp;
+				oPos.y += Mathf.PerlinNoise(	(100000f + (this.transform.position.x + oPos.x))/frq, 
+					(seed + 100000f + (this.transform.position.z + oPos.z ))/frq) * amp;
+
+				// Snap to grid.
+				oPos.y = Mathf.Round (oPos.y);
 
 				voxels[i].transform.position = oPos;
 				voxels[i].transform.localScale = voxelSize;
@@ -69,7 +76,7 @@ public class voxelFarm : MonoBehaviour {
 //		if (this.gameObject.GetComponent<MeshCollider>() != null)
 //		Destroy (this.gameObject.GetComponent<MeshCollider>());
 
-		for (int i = 0; i < meshes.Length; i++) {
+		for (int i = meshes.Length - 1; i >= 0; i--) {
 			combined [i].mesh = meshes [i].sharedMesh;
 			combined [i].transform = meshes [i].transform.localToWorldMatrix;
 			meshes [i].gameObject.SetActive (false);
@@ -86,13 +93,19 @@ public class voxelFarm : MonoBehaviour {
 		this.transform.gameObject.AddComponent<MeshCollider> ();
 
 		if (this.gameObject.GetComponent<MeshRenderer> () == null)
-		this.gameObject.AddComponent<MeshRenderer> ();
+			this.gameObject.AddComponent<MeshRenderer> ();
 
 		this.transform.gameObject.SetActive (true);
-
 	}
+	
 
 	void Update () {
-		
+
+		if (Input.GetKeyUp (KeyCode.U)) {
+			seed += 1;
+			this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
+			generateGrid ();
+		}
+
 	}
 }
