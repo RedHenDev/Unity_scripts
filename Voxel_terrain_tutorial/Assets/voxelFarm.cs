@@ -43,15 +43,15 @@ public class voxelFarm : MonoBehaviour {
 				oPos.z += z * voxelSize.z;
 
 				// Snap to grid.
-				oPos.x = Mathf.Round (oPos.x);
-				oPos.z = Mathf.Round (oPos.z);
+//				oPos.x = Mathf.Round (oPos.x);
+//				oPos.z = Mathf.Round (oPos.z);
 
 				// Perlin.
-				oPos.y += Mathf.PerlinNoise(	(100000f + (this.transform.position.x + oPos.x))/frq, 
-					(seed + 100000f + (this.transform.position.z + oPos.z ))/frq) * amp;
+				oPos.y += Mathf.PerlinNoise(	(1000000f + (this.transform.position.x + oPos.x))/frq, 
+					(seed + 1000000f + (this.transform.position.z + oPos.z ))/frq) * amp;
 
 				// Snap to grid.
-				oPos.y = Mathf.Round (oPos.y);
+				//oPos.y = Mathf.Round (oPos.y);
 
 				voxels[i].transform.position = oPos;
 				voxels[i].transform.localScale = voxelSize;
@@ -95,7 +95,7 @@ public class voxelFarm : MonoBehaviour {
 		if (this.gameObject.GetComponent<MeshRenderer> () == null)
 			this.gameObject.AddComponent<MeshRenderer> ();
 
-		this.transform.gameObject.SetActive (true);
+		//this.transform.gameObject.SetActive (true);
 	}
 	
 

@@ -172,7 +172,7 @@ MonoBehaviour:
   zVoxels: 50
   voxelSize: {x: 1, y: 1, z: 1}
   amp: 7
-  frq: 24
+  frq: 15
   seed: 99
 --- !u!4 &860770018
 Transform:
@@ -269,7 +269,7 @@ MonoBehaviour:
   zVoxels: 50
   voxelSize: {x: 1, y: 1, z: 1}
   amp: 7
-  frq: 24
+  frq: 15
   seed: 99
 --- !u!4 &1055989680
 Transform:
