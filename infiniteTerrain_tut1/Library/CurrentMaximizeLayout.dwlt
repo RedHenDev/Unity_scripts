@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1043
     height: 728
-  m_MinSize: {x: 507, y: 471}
-  m_MaxSize: {x: 14002, y: 14021}
+  m_MinSize: {x: 509, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 3680
+  controlID: 811
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 52.00035
-    y: 98.00021
+    x: 44.00035
+    y: 103.00021
     width: 735
     height: 432
   m_MaximizeOnPlay: 1
@@ -120,10 +120,10 @@ MonoBehaviour:
     y: 0
     width: 737
     height: 728
-  m_MinSize: {x: 230, y: 471}
-  m_MaxSize: {x: 10000, y: 14021}
+  m_MinSize: {x: 232, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 3634
+  controlID: 744
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -247,10 +247,10 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 56
-    y: 94
-    width: 888
-    height: 427
+    x: 44
+    y: 103
+    width: 735
+    height: 432
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -324,10 +324,10 @@ MonoBehaviour:
   m_LastProjectPath: /Users/bnew/Documents/Unity_scripts/infiniteTerrain_tut1
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 19}
+    scrollPos: {x: 0, y: 95}
     m_SelectedIDs: 7c260000
     m_LastClickedID: 9852
-    m_ExpandedIDs: 00000000662600006c2600007c2600007e26000000270000aa270000ac270000c428000016290000582900006029000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000662600006c2600007c2600007e26000000270000aa270000ac270000bc270000c6280000182900005a29000062290000aa29000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -355,7 +355,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000662600006c2600007c2600007e26000000270000aa270000ac270000c428000016290000582900006029000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000662600006c2600007c2600007e26000000270000aa270000ac270000c6280000182900005a2900006229000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -380,8 +380,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: a0270000
+    m_LastClickedInstanceID: 10144
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 00000000
     m_RenameOverlay:
@@ -456,10 +456,10 @@ MonoBehaviour:
     y: 0
     width: 306
     height: 728
-  m_MinSize: {x: 277, y: 271}
-  m_MaxSize: {x: 4002, y: 8021}
+  m_MinSize: {x: 277, y: 292}
+  m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 3681
+  controlID: 812
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -478,8 +478,8 @@ MonoBehaviour:
     y: 0
     width: 306
     height: 484
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -571,9 +571,9 @@ MonoBehaviour:
     height: 223
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: a0270000
     m_LastClickedID: 0
-    m_ExpandedIDs: 1cfcffff00000000
+    m_ExpandedIDs: 26cbfeff6efbfeff1cfcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
