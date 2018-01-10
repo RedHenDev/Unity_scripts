@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860770018}
   - component: {fileID: 860770017}
+  - component: {fileID: 860770019}
   - component: {fileID: 860770016}
   m_Layer: 0
   m_Name: voxel_farm (1)
@@ -138,7 +139,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d227531c2f2084f029559d501666b817, type: 2}
+  - {fileID: 2100000, guid: ca6d948c5209f49a7bc7d1ffd34542e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -163,7 +164,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 860770015}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57ba6241142da4a5f9bb4d8665a69a6d, type: 3}
   m_Name: 
@@ -174,6 +175,9 @@ MonoBehaviour:
   amp: 7
   frq: 15
   seed: 99
+  pixels: 16
+  tileU: 1
+  tileV: 1
 --- !u!4 &860770018
 Transform:
   m_ObjectHideFlags: 0
@@ -187,6 +191,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &860770019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860770015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7201226ed8a4e06b9a9abc12ca9afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xVoxels: 50
+  zVoxels: 50
+  voxelSize: {x: 1, y: 1, z: 1}
+  amp: 7
+  frq: 15
+  seed: 99
+  pixels: 16
+  tileU: 1
+  tileV: 1
 --- !u!1001 &976238400
 Prefab:
   m_ObjectHideFlags: 0
@@ -271,6 +295,9 @@ MonoBehaviour:
   amp: 7
   frq: 15
   seed: 99
+  pixels: 16
+  tileU: 1
+  tileV: 1
 --- !u!4 &1055989680
 Transform:
   m_ObjectHideFlags: 0
@@ -298,6 +325,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: d227531c2f2084f029559d501666b817, type: 2}
+  - {fileID: 2100000, guid: 57d673e0add984a048fdae181daa48f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

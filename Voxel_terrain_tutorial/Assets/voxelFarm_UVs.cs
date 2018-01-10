@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class voxelFarm : MonoBehaviour {
+public class voxelFarm_UVs : MonoBehaviour {
 
 	public int xVoxels = 4;
 	public int zVoxels = 4;
@@ -38,6 +38,8 @@ public class voxelFarm : MonoBehaviour {
 
 				voxels[i] = GameObject.CreatePrimitive (PrimitiveType.Cube);
 
+
+
 				oPos = this.transform.position;
 				oPos.y = 0f;
 				oPos.x -= xVoxels/2 * voxelSize.x;
@@ -57,6 +59,9 @@ public class voxelFarm : MonoBehaviour {
 				// Snap to grid.
 				oPos.y = Mathf.Floor (oPos.y);
 
+				// For texture atlas.
+				setUVs (voxels [i]);
+
 				voxels[i].transform.position = oPos;
 				voxels[i].transform.localScale = voxelSize;
 				voxels[i].transform.parent = transform;
@@ -66,13 +71,18 @@ public class voxelFarm : MonoBehaviour {
 
 		combineMeshes();
 
+
+
 		for (i = 0; i < voxels.Length; i++){
 			Destroy(voxels[i]);
 		}
-	
+
+
 	}
 
 	void combineMeshes (){
+
+
 
 		MeshFilter[] meshes = GetComponentsInChildren<MeshFilter> ();
 		CombineInstance[] combined = new CombineInstance[meshes.Length];
@@ -86,8 +96,11 @@ public class voxelFarm : MonoBehaviour {
 			meshes [i].gameObject.SetActive (false);
 		}
 
+
+
 		if (this.gameObject.GetComponent<MeshFilter> () == null)
 			this.transform.gameObject.AddComponent<MeshFilter> ();
+
 
 		this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
 		this.transform.GetComponent<MeshFilter> ().mesh.CombineMeshes (combined, true);
@@ -114,14 +127,14 @@ public class voxelFarm : MonoBehaviour {
 	}
 
 
-	void setUVs(){
+	void setUVs(GameObject _whichObject){
 
 		float pixelScale = 1 / pixels;
 
 		float uStart = pixelScale * tileU;
 		float uEnd = pixelScale * tileU + (tileU+1);
 		float vStart = pixelScale * tileV;
-		float vEnd = pixelScale * tileV + (tileU+1);
+		float vEnd = pixelScale * tileV + (tileV+1);
 
 		Vector2[] uvVoxels = new Vector2[24];
 
@@ -150,7 +163,10 @@ public class voxelFarm : MonoBehaviour {
 		uvVoxels[22] = new Vector2(uEnd, vEnd);
 		uvVoxels[23] = new Vector2(uEnd, vStart);
 
-		this.GetComponent<MeshFilter> ().mesh.uv = uvVoxels;
+
+		Debug.Log("uvs " + _whichObject.GetComponent<MeshFilter> ());
+
+		_whichObject.GetComponent<MeshFilter> ().mesh.uv = uvVoxels;
 
 	}
 
