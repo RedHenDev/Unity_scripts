@@ -8,6 +8,8 @@ public class simpleVoxelFarm : MonoBehaviour {
 	private GameObject currentBlockType;
 	public GameObject[] blockTypes;
 
+	[Tooltip("True for minecraft style voxels")]
+	public bool SnapToGrid = true;
 
 	public float amp = 10f;
 	public float freq = 10f;
@@ -34,9 +36,12 @@ public class simpleVoxelFarm : MonoBehaviour {
 			for (int z = 0; z < rows; z++) {
 			
 				float y = Mathf.PerlinNoise ((myPos.x + x) / freq, 
-					(myPos.z+z) / freq) * amp;
+					          (myPos.z + z) / freq) * amp;
+
 			
-				y = Mathf.Floor (y);
+				if (SnapToGrid) {
+					y = Mathf.Floor (y);
+				}
 
 				if (y > amp / 2)
 					currentBlockType = 

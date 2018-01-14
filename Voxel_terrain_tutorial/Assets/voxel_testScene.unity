@@ -108,6 +108,48 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &819193583
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &860770015
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +161,7 @@ GameObject:
   - component: {fileID: 860770017}
   - component: {fileID: 860770019}
   - component: {fileID: 860770016}
+  - component: {fileID: 860770020}
   m_Layer: 0
   m_Name: voxel_farm (1)
   m_TagString: Untagged
@@ -171,13 +214,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xVoxels: 50
   zVoxels: 50
+  SnapToGrid: 1
   voxelSize: {x: 1, y: 1, z: 1}
   amp: 7
   frq: 15
   seed: 99
-  pixels: 16
-  tileU: 1
-  tileV: 1
 --- !u!4 &860770018
 Transform:
   m_ObjectHideFlags: 0
@@ -189,7 +230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &860770019
 MonoBehaviour:
@@ -204,13 +245,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xVoxels: 50
   zVoxels: 50
+  SnapToGrid: 0
   voxelSize: {x: 1, y: 1, z: 1}
   amp: 7
   frq: 15
   seed: 99
   pixels: 16
-  tileU: 1
-  tileV: 1
+  tileU: 3
+  tileV: 14
+  myCamera: {fileID: 1447945749}
+--- !u!33 &860770020
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860770015}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &976238400
 Prefab:
   m_ObjectHideFlags: 0
@@ -258,6 +308,10 @@ Prefab:
       propertyPath: advancedSettings.airControl
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
   m_IsPrefabParent: 0
@@ -291,13 +345,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xVoxels: 50
   zVoxels: 50
+  SnapToGrid: 0
   voxelSize: {x: 1, y: 1, z: 1}
   amp: 7
   frq: 15
   seed: 99
-  pixels: 16
-  tileU: 1
-  tileV: 1
 --- !u!4 &1055989680
 Transform:
   m_ObjectHideFlags: 0
@@ -309,7 +361,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1055989681
 MeshRenderer:
@@ -344,6 +396,11 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!20 &1447945749 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 2}
+  m_PrefabInternal: {fileID: 819193583}
 --- !u!1 &1571789701
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,5 +567,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}

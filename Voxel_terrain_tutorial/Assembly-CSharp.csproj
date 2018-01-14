@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\simpleVoxels\build.cs" />
      <Compile Include="Assets\simpleVoxels\simpleVoxelFarm.cs" />
      <Compile Include="Assets\voxelFarm.cs" />
      <Compile Include="Assets\voxelFarm_UVs.cs" />

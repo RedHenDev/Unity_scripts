@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class voxelFarm : MonoBehaviour {
 
-	public int xVoxels = 4;
-	public int zVoxels = 4;
+	public int xVoxels = 12;
+	public int zVoxels = 12;
+
+	[Tooltip("True for minecraft style voxels")]
+	public bool SnapToGrid = true;
 
 	public Vector3 voxelSize = new Vector3(1f, 1f, 1f);
 
-	public float amp = 3f;
+	public float amp = 7f;
 	public float frq = 12f;
 	public float seed = 99;
-
-	public int pixels = 16;
-	public int tileU = 1;
-	public int tileV = 1;
 
 	void Start () {
 		generateGrid ();
@@ -55,7 +54,9 @@ public class voxelFarm : MonoBehaviour {
 					(seed + 1000000f + (this.transform.position.z + oPos.z ))/frq) * amp;
 
 				// Snap to grid.
-				oPos.y = Mathf.Floor (oPos.y);
+				if (SnapToGrid) {
+					oPos.y = Mathf.Floor (oPos.y);
+				}
 
 				voxels[i].transform.position = oPos;
 				voxels[i].transform.localScale = voxelSize;
@@ -99,60 +100,21 @@ public class voxelFarm : MonoBehaviour {
 		if (this.gameObject.GetComponent<MeshRenderer> () == null)
 			this.gameObject.AddComponent<MeshRenderer> ();
 
-		//this.transform.gameObject.SetActive (true);
+//		this.transform.gameObject.SetActive (true);
 	}
 	
 
 	void Update () {
 
-		if (Input.GetKeyUp (KeyCode.U)) {
-			seed += 1;
-			this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
-			generateGrid ();
-		}
+//		if (Input.GetKeyUp (KeyCode.U)) {
+//			seed += 1;
+//			//this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
+//			generateGrid ();
+//		}
 
 	}
 
 
-	void setUVs(){
-
-		float pixelScale = 1 / pixels;
-
-		float uStart = pixelScale * tileU;
-		float uEnd = pixelScale * tileU + (tileU+1);
-		float vStart = pixelScale * tileV;
-		float vEnd = pixelScale * tileV + (tileU+1);
-
-		Vector2[] uvVoxels = new Vector2[24];
-
-		uvVoxels[0] = new Vector2(uStart, vStart);
-		uvVoxels[1] = new Vector2(uEnd, vStart);
-		uvVoxels[2] = new Vector2(uStart, vEnd);
-		uvVoxels[3] = new Vector2(uEnd, vEnd);
-		uvVoxels[4] = new Vector2(uStart, vEnd);
-		uvVoxels[5] = new Vector2(uEnd, vEnd);
-		uvVoxels[6] = new Vector2(uStart, vEnd);
-		uvVoxels[7] = new Vector2(uEnd, vEnd);
-		uvVoxels[8] = new Vector2(uStart, vStart);
-		uvVoxels[9] = new Vector2(uEnd, vStart);
-		uvVoxels[10] = new Vector2(uStart, vStart);
-		uvVoxels[11] = new Vector2(uEnd, vStart);
-		uvVoxels[12] = new Vector2(uStart, vStart);
-		uvVoxels[13] = new Vector2(uStart, vEnd);
-		uvVoxels[14] = new Vector2(uEnd, vEnd);
-		uvVoxels[15] = new Vector2(uEnd, vStart);
-		uvVoxels[16] = new Vector2(uStart, vStart);
-		uvVoxels[17] = new Vector2(uStart, vEnd);
-		uvVoxels[18] = new Vector2(uEnd, vEnd);
-		uvVoxels[19] = new Vector2(uEnd, vStart);
-		uvVoxels[20] = new Vector2(uStart, vStart);
-		uvVoxels[21] = new Vector2(uStart, vEnd);
-		uvVoxels[22] = new Vector2(uEnd, vEnd);
-		uvVoxels[23] = new Vector2(uEnd, vStart);
-
-		this.GetComponent<MeshFilter> ().mesh.uv = uvVoxels;
-
-	}
 
 
 }

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class voxelFarm_UVs : MonoBehaviour {
 
-	public int xVoxels = 4;
-	public int zVoxels = 4;
+	public int xVoxels = 12;
+	public int zVoxels = 12;
+
+	[Tooltip("True for minecraft style voxels")]
+	public bool SnapToGrid = true;
 
 	public Vector3 voxelSize = new Vector3(1f, 1f, 1f);
 
-	public float amp = 3f;
+	public float amp = 7f;
 	public float frq = 12f;
 	public float seed = 99;
 
@@ -17,12 +20,18 @@ public class voxelFarm_UVs : MonoBehaviour {
 	public int tileU = 1;
 	public int tileV = 1;
 
+	public Camera myCamera;
+
 	void Start () {
 		generateGrid ();
 	}
 	
 	void generateGrid(){
-	
+
+		// For texture atlas.
+		tileU = Mathf.FloorToInt(Random.Range(0,15));
+		tileV = Mathf.FloorToInt(Random.Range(0,15));
+		setUVs (this.gameObject);
 
 		GameObject[] voxels = new GameObject[xVoxels * zVoxels];
 
@@ -38,7 +47,10 @@ public class voxelFarm_UVs : MonoBehaviour {
 
 				voxels[i] = GameObject.CreatePrimitive (PrimitiveType.Cube);
 
-
+				// For texture atlas.
+				tileU = Mathf.FloorToInt(Random.Range(0,15));
+				tileV = Mathf.FloorToInt(Random.Range(0,15));
+				setUVs (voxels [i]);
 
 				oPos = this.transform.position;
 				oPos.y = 0f;
@@ -57,21 +69,23 @@ public class voxelFarm_UVs : MonoBehaviour {
 					(seed + 1000000f + (this.transform.position.z + oPos.z ))/frq) * amp;
 
 				// Snap to grid.
-				oPos.y = Mathf.Floor (oPos.y);
+				if (SnapToGrid) {
+					oPos.y = Mathf.Floor (oPos.y);
+				}
 
-				// For texture atlas.
-				setUVs (voxels [i]);
+
 
 				voxels[i].transform.position = oPos;
 				voxels[i].transform.localScale = voxelSize;
+
+			
+
 				voxels[i].transform.parent = transform;
 
 			}
 		}
 
 		combineMeshes();
-
-
 
 		for (i = 0; i < voxels.Length; i++){
 			Destroy(voxels[i]);
@@ -82,13 +96,12 @@ public class voxelFarm_UVs : MonoBehaviour {
 
 	void combineMeshes (){
 
-
-
 		MeshFilter[] meshes = GetComponentsInChildren<MeshFilter> ();
 		CombineInstance[] combined = new CombineInstance[meshes.Length];
 
 //		if (this.gameObject.GetComponent<MeshCollider>() != null)
-//		Destroy (this.gameObject.GetComponent<MeshCollider>());
+		//		Destroy (this.gameObject.GetComponent<MeshCollider>());
+
 
 		for (int i = meshes.Length - 1; i >= 0; i--) {
 			combined [i].mesh = meshes [i].sharedMesh;
@@ -101,6 +114,11 @@ public class voxelFarm_UVs : MonoBehaviour {
 		if (this.gameObject.GetComponent<MeshFilter> () == null)
 			this.transform.gameObject.AddComponent<MeshFilter> ();
 
+		// New uv stuff.
+		Vector2[] oldUVs = this.transform.GetComponent<MeshFilter>().mesh.uv;
+
+		// New uv stuff.
+		Vector2[] newUVs = new Vector2[oldUVs.Length + 24];
 
 		this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
 		this.transform.GetComponent<MeshFilter> ().mesh.CombineMeshes (combined, true);
@@ -112,29 +130,32 @@ public class voxelFarm_UVs : MonoBehaviour {
 		if (this.gameObject.GetComponent<MeshRenderer> () == null)
 			this.gameObject.AddComponent<MeshRenderer> ();
 
-		//this.transform.gameObject.SetActive (true);
+		this.transform.gameObject.SetActive (true);
 	}
 	
 
 	void Update () {
 
-		if (Input.GetKeyUp (KeyCode.U)) {
-			seed += 1;
-			this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
-			generateGrid ();
-		}
+//		if (Input.GetKeyUp (KeyCode.U)) {
+//			seed += 1;
+//			//this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
+//			generateGrid ();
+//		}
+
+
 
 	}
 
 
+
 	void setUVs(GameObject _whichObject){
 
-		float pixelScale = 1 / pixels;
+		float pixelScale = 1 / pixels ;
 
 		float uStart = pixelScale * tileU;
-		float uEnd = pixelScale * tileU + (tileU+1);
+		float uEnd = pixelScale * (tileU+1);
 		float vStart = pixelScale * tileV;
-		float vEnd = pixelScale * tileV + (tileV+1);
+		float vEnd = pixelScale * (tileV+1);
 
 		Vector2[] uvVoxels = new Vector2[24];
 
@@ -164,9 +185,9 @@ public class voxelFarm_UVs : MonoBehaviour {
 		uvVoxels[23] = new Vector2(uEnd, vStart);
 
 
-		Debug.Log("uvs " + _whichObject.GetComponent<MeshFilter> ());
+		//Debug.Log("uvs " + _whichObject.GetComponent<MeshFilter> ());
 
-		_whichObject.GetComponent<MeshFilter> ().mesh.uv = uvVoxels;
+		_whichObject.transform.GetComponent<MeshFilter> ().mesh.uv = uvVoxels;
 
 	}
 
