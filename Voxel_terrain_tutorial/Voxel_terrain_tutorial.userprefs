@@ -1,8 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/voxelFarm.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/simpleVoxels/digly.cs">
     <Files>
-      <File FileName="Assets/voxelFarm.cs" Line="78" Column="21" />
+      <File FileName="Assets/simpleVoxels/build.cs" Line="31" Column="5" />
+      <File FileName="Assets/simpleVoxels/simpleVoxelFarm.cs" Line="54" Column="15" />
+      <File FileName="Assets/simpleVoxels/digly.cs" Line="64" Column="49" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

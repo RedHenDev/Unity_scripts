@@ -23,7 +23,12 @@ public class build : MonoBehaviour {
 			//Vector3 newBlockPos = hit.collider.transform.position;
 			//newBlockPos -= hit.normal * 1f;
 
-			hit.collider.transform.Translate (Vector3.down * 1f);
+			if (hit.collider.gameObject.CompareTag ("synthetic")) {
+				DestroyObject (hit.collider.gameObject);
+			} else if (!hit.collider.gameObject.CompareTag ("synthetic")) {
+
+				hit.collider.transform.Translate (Vector3.down * 1f);
+			}
 
 		}
 	}
@@ -36,6 +41,7 @@ public class build : MonoBehaviour {
 			newBlockPos += hit.normal * 1f;
 			GameObject 
 			newB = GameObject.Instantiate (hit.collider.gameObject);
+			newB.gameObject.tag = "synthetic";
 			newB.transform.position = newBlockPos;
 
 		}
