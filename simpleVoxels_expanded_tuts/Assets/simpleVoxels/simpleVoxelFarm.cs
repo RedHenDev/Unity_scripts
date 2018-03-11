@@ -14,12 +14,13 @@ public class simpleVoxelFarm : MonoBehaviour {
 	public float amp = 10f;
 	public float freq = 10f;
 
-	public int seed = 0;
+	public int seed = 1;
 
 	private Vector3 myPos;
 
 	void Start () {
 		generateTerrain ();
+		reposTerrain ();
 	}
 	
 
@@ -57,6 +58,8 @@ public class simpleVoxelFarm : MonoBehaviour {
 				newBlock.transform.position =
 					new Vector3 (myPos.x + x, y, myPos.z + z);
 
+				// Make the block a child, so that
+				// we can grab it later to reposition.
 				newBlock.transform.SetParent(this.transform);
 
 			}
@@ -68,19 +71,19 @@ public class simpleVoxelFarm : MonoBehaviour {
 
 	void reposTerrain(){
 
-		//myPos = this.transform.position;
-
 		int cols = 100;
 		int rows = 100;
 
 		for (int x = 0; x < cols; x++) {
-
 
 			for (int z = 0; z < rows; z++) {
 
 				float y = Mathf.PerlinNoise (( seed + myPos.x + x) / freq, 
 					(myPos.z + z) / freq) * amp;
 
+				// Added terrain features via seed.
+				if (seed % 9 == 0)
+					y += Mathf.Sin (z + x)/2.2f;
 
 				if (SnapToGrid) {
 					y = Mathf.Floor (y);
@@ -100,11 +103,16 @@ public class simpleVoxelFarm : MonoBehaviour {
 
 
 	}
+		
 
 	void Update(){
 	
-		if (Input.GetKeyDown(KeyCode.P)) {
-			seed += 4;
+		if (Input.GetKey(KeyCode.E)) {
+			seed += 1;
+			reposTerrain();
+		}
+		else if (Input.GetKey(KeyCode.R)) {
+			seed += 1000;
 			reposTerrain();
 		}
 	

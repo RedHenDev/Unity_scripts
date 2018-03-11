@@ -261,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 770499341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 32, z: 50}
+  m_LocalPosition: {x: 32, y: 32, z: 32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437362919}
@@ -575,10 +575,10 @@ MonoBehaviour:
   blockTypes:
   - {fileID: 1676933221924836, guid: da09e1d414d04450f8b4b4dae4b1354d, type: 2}
   - {fileID: 1147183442566046, guid: cede84c2ff66a4f3faad3b7a569ee8d2, type: 2}
-  SnapToGrid: 1
+  SnapToGrid: 0
   amp: 32
   freq: 32
-  seed: 0
+  seed: 1
 --- !u!4 &1641666585
 Transform:
   m_ObjectHideFlags: 0
