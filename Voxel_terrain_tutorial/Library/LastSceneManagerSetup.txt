@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/simpleVoxels/ComptonFix.unity
+- path: Assets/voxel_testScene.unity
   isLoaded: 1
   isActive: 1

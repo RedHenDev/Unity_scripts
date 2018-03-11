@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/simpleVoxels/seeding.unity
+  isLoaded: 1
+  isActive: 1
