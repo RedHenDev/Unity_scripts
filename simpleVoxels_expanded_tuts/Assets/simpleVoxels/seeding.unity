@@ -513,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1478737943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   SnapToGrid: 1
   amp: 32
   freq: 32
-  seed: 0
+  seed: 123
 --- !u!4 &1478737944
 Transform:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
   SnapToGrid: 0
   amp: 32
   freq: 32
-  seed: 1
+  seed: 99
 --- !u!4 &1641666585
 Transform:
   m_ObjectHideFlags: 0
