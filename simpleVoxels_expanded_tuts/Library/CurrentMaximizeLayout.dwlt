@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1072
     height: 729
-  m_MinSize: {x: 507, y: 471}
-  m_MaxSize: {x: 14002, y: 14021}
+  m_MinSize: {x: 509, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 15500
+  controlID: 16990
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -120,10 +120,10 @@ MonoBehaviour:
     y: 0
     width: 753
     height: 729
-  m_MinSize: {x: 230, y: 471}
-  m_MaxSize: {x: 10000, y: 14021}
+  m_MinSize: {x: 232, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 15501
+  controlID: 16909
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -178,14 +178,14 @@ MonoBehaviour:
     width: 751
     height: 406
   m_SceneLighting: 1
-  lastFramingTime: 2060.4436190128326
+  lastFramingTime: 74119.7309229374
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 49.5, y: 145.5, z: 49.5}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 49.5, y: 145.5, z: 49.5}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -212,9 +212,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
-    m_Target: 52.1265
+    m_Target: 22
     speed: 2
-    m_Value: 52.1265
+    m_Value: 22
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -380,9 +380,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ca260000
-    m_LastClickedInstanceID: 9930
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: de260000
+    m_LastClickedInstanceID: 9950
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 271}
   m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 15571
+  controlID: 16991
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -511,7 +511,7 @@ MonoBehaviour:
     y: 96.00023
     width: 317
     height: 460
-  m_ScrollPosition: {x: 0, y: 203.98438}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
@@ -571,8 +571,8 @@ MonoBehaviour:
     height: 227
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ca260000
-    m_LastClickedID: 9930
+    m_SelectedIDs: de260000
+    m_LastClickedID: 9950
     m_ExpandedIDs: 1cfcffff00000000de260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

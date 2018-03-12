@@ -111,7 +111,7 @@ public class simpleVoxelFarm : MonoBehaviour {
 			seed += 1;
 			reposTerrain();
 		}
-		else if (Input.GetKey(KeyCode.R)) {
+		else if (Input.GetKeyDown(KeyCode.R)) {
 			seed += 1000;
 			reposTerrain();
 		}
