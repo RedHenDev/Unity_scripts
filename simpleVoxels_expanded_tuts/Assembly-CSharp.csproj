@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\simpleVoxels\build.cs" />
      <Compile Include="Assets\simpleVoxels\digly.cs" />
+     <Compile Include="Assets\simpleVoxels\seedManager.cs" />
      <Compile Include="Assets\simpleVoxels\simpleVoxelFarm.cs" />
  <Reference Include="Assembly-CSharp-firstpass">
  <HintPath>/Users/bnew/Documents/Unity_scripts/simpleVoxels_expanded_tuts/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll</HintPath>

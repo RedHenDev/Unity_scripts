@@ -187,6 +187,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &395029809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 395029811}
+  - component: {fileID: 395029810}
+  m_Layer: 0
+  m_Name: Voxel Farm (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &395029810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 395029809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b7f911d556646139395b3d76217bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockTypes:
+  - {fileID: 1676933221924836, guid: da09e1d414d04450f8b4b4dae4b1354d, type: 2}
+  - {fileID: 1147183442566046, guid: cede84c2ff66a4f3faad3b7a569ee8d2, type: 2}
+  SnapToGrid: 1
+  amp: 32
+  freq: 32
+  seed: 370
+  useRunningTerrain: 0
+--- !u!4 &395029811
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 395029809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 99, y: 0, z: 99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437362916
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +309,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 770499341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32, y: 32, z: 32}
+  m_LocalPosition: {x: 32, y: 100, z: 32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437362919}
@@ -383,7 +431,7 @@ MonoBehaviour:
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 10
   m_StickToGroundForce: 10
-  m_GravityMultiplier: 0
+  m_GravityMultiplier: 2
   m_MouseLook:
     XSensitivity: 2
     YSensitivity: 2
@@ -498,6 +546,96 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEyes: {fileID: 1967417182}
+--- !u!1 &794382263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 794382265}
+  - component: {fileID: 794382264}
+  m_Layer: 0
+  m_Name: seed Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &794382264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794382263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20ab63f9a1c4408f881b0e2b218c54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomize: 0
+  seed: 1567
+--- !u!4 &794382265
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794382263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1266032763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1266032765}
+  - component: {fileID: 1266032764}
+  m_Layer: 0
+  m_Name: Voxel Farm (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266032764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266032763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b7f911d556646139395b3d76217bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockTypes:
+  - {fileID: 1676933221924836, guid: da09e1d414d04450f8b4b4dae4b1354d, type: 2}
+  - {fileID: 1147183442566046, guid: cede84c2ff66a4f3faad3b7a569ee8d2, type: 2}
+  SnapToGrid: 1
+  amp: 32
+  freq: 32
+  seed: 99
+  useRunningTerrain: 0
+--- !u!4 &1266032765
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266032763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1478737942
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +669,8 @@ MonoBehaviour:
   SnapToGrid: 1
   amp: 32
   freq: 32
-  seed: 123
+  seed: 370
+  useRunningTerrain: 0
 --- !u!4 &1478737944
 Transform:
   m_ObjectHideFlags: 0
@@ -539,7 +678,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1478737942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: 0}
+  m_LocalPosition: {x: 99, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -575,10 +714,11 @@ MonoBehaviour:
   blockTypes:
   - {fileID: 1676933221924836, guid: da09e1d414d04450f8b4b4dae4b1354d, type: 2}
   - {fileID: 1147183442566046, guid: cede84c2ff66a4f3faad3b7a569ee8d2, type: 2}
-  SnapToGrid: 0
+  SnapToGrid: 1
   amp: 32
   freq: 32
   seed: 99
+  useRunningTerrain: 0
 --- !u!4 &1641666585
 Transform:
   m_ObjectHideFlags: 0
