@@ -72,6 +72,24 @@ public class simpleVoxelFarm : MonoBehaviour {
 				newBlock.transform.position =
 					new Vector3 (myPos.x + x, y, myPos.z + z);
 
+				// Now decide whether to create a tree!
+				if (Random.value * 100 < 3) {
+					float adjust = newBlock.transform.localScale.y / 2f;
+					GameObject treeBabe = 
+						GameObject.CreatePrimitive (PrimitiveType.Cube);
+					treeBabe.transform.position =
+						new Vector3 (myPos.x + x, y+5f + adjust, myPos.z + z);
+
+
+					Vector3 tT = treeBabe.transform.localScale;
+					tT.y = Random.value * 24;
+					treeBabe.transform.localScale =
+						tT;
+
+
+				}
+
+
 				// Make the block a child, so that
 				// we can grab it later to reposition.
 				newBlock.transform.SetParent(this.transform);
