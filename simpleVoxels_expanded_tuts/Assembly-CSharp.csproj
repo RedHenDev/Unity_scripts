@@ -53,6 +53,8 @@
   <ItemGroup>
      <Compile Include="Assets\simpleVoxels\build.cs" />
      <Compile Include="Assets\simpleVoxels\digly.cs" />
+     <Compile Include="Assets\simpleVoxels\seeding\seedBrain.cs" />
+     <Compile Include="Assets\simpleVoxels\seeding\seedingFarm.cs" />
      <Compile Include="Assets\simpleVoxels\seedManager.cs" />
      <Compile Include="Assets\simpleVoxels\simpleVoxelFarm.cs" />
  <Reference Include="Assembly-CSharp-firstpass">

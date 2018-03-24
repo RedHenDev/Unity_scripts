@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/simpleVoxels/seeding.unity
+- path: Assets/simpleVoxels/seeding/kamilSeedScene.unity
   isLoaded: 1
   isActive: 1
