@@ -29,9 +29,9 @@ public class voxelFarm_UVs : MonoBehaviour {
 	void generateGrid(){
 
 		// For texture atlas.
-		tileU = Mathf.FloorToInt(Random.Range(0,15));
-		tileV = Mathf.FloorToInt(Random.Range(0,15));
-		setUVs (this.gameObject);
+		//tileU = Mathf.FloorToInt(Random.Range(0,15));
+		//tileV = Mathf.FloorToInt(Random.Range(0,15));
+		//setUVs (this.gameObject);
 
 		GameObject[] voxels = new GameObject[xVoxels * zVoxels];
 
@@ -46,11 +46,6 @@ public class voxelFarm_UVs : MonoBehaviour {
 				i++;
 
 				voxels[i] = GameObject.CreatePrimitive (PrimitiveType.Cube);
-
-				// For texture atlas.
-				tileU = Mathf.FloorToInt(Random.Range(0,15));
-				tileV = Mathf.FloorToInt(Random.Range(0,15));
-				setUVs (voxels [i]);
 
 				oPos = this.transform.position;
 				oPos.y = 0f;
@@ -73,6 +68,16 @@ public class voxelFarm_UVs : MonoBehaviour {
 					oPos.y = Mathf.Floor (oPos.y);
 				}
 
+			
+				// For texture atlas.
+//				tileU = Mathf.FloorToInt(Random.Range(0,15));
+//				tileV = Mathf.FloorToInt(Random.Range(0,15));
+//				if (i < 100)
+//					Debug.Log ("U = " + tileU + " V = " + tileV);
+//				
+//				setUVs ( voxels[i]);
+
+
 
 
 				voxels[i].transform.position = oPos;
@@ -81,6 +86,8 @@ public class voxelFarm_UVs : MonoBehaviour {
 			
 
 				voxels[i].transform.parent = transform;
+
+
 
 			}
 		}
@@ -100,25 +107,26 @@ public class voxelFarm_UVs : MonoBehaviour {
 		CombineInstance[] combined = new CombineInstance[meshes.Length];
 
 //		if (this.gameObject.GetComponent<MeshCollider>() != null)
-		//		Destroy (this.gameObject.GetComponent<MeshCollider>());
-
+//				Destroy (this.gameObject.GetComponent<MeshCollider>());
+		// New uv stuff.
+	
 
 		for (int i = meshes.Length - 1; i >= 0; i--) {
 			combined [i].mesh = meshes [i].sharedMesh;
 			combined [i].transform = meshes [i].transform.localToWorldMatrix;
+
 			meshes [i].gameObject.SetActive (false);
 		}
 
+
+		// New uv stuff.
+		//Vector2[] oldUVs = this.GetComponent<MeshFilter>().mesh.uv;
+		//Vector2[] newUVs = new Vector2[oldUVs.Length+24];
 
 
 		if (this.gameObject.GetComponent<MeshFilter> () == null)
 			this.transform.gameObject.AddComponent<MeshFilter> ();
 
-		// New uv stuff.
-		Vector2[] oldUVs = this.transform.GetComponent<MeshFilter>().mesh.uv;
-
-		// New uv stuff.
-		Vector2[] newUVs = new Vector2[oldUVs.Length + 24];
 
 		this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
 		this.transform.GetComponent<MeshFilter> ().mesh.CombineMeshes (combined, true);
@@ -127,20 +135,22 @@ public class voxelFarm_UVs : MonoBehaviour {
 
 		this.transform.gameObject.AddComponent<MeshCollider> ();
 
-		if (this.gameObject.GetComponent<MeshRenderer> () == null)
-			this.gameObject.AddComponent<MeshRenderer> ();
+//		if (this.gameObject.GetComponent<MeshRenderer> () == null)
+//			this.gameObject.AddComponent<MeshRenderer> ();
 
 		this.transform.gameObject.SetActive (true);
+
+
 	}
 	
 
 	void Update () {
 
-//		if (Input.GetKeyUp (KeyCode.U)) {
-//			seed += 1;
-//			//this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
-//			generateGrid ();
-//		}
+		if (Input.GetKeyUp (KeyCode.U)) {
+			seed += 1;
+			//this.transform.GetComponent<MeshFilter> ().mesh = new Mesh ();
+			generateGrid ();
+		}
 
 
 
@@ -185,9 +195,10 @@ public class voxelFarm_UVs : MonoBehaviour {
 		uvVoxels[23] = new Vector2(uEnd, vStart);
 
 
-		//Debug.Log("uvs " + _whichObject.GetComponent<MeshFilter> ());
 
 		_whichObject.transform.GetComponent<MeshFilter> ().mesh.uv = uvVoxels;
+
+		//Debug.Log(_whichObject.GetComponent<MeshFilter> ().mesh.uv[0]);
 
 	}
 
