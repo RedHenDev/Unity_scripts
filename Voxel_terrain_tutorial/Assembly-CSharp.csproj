@@ -52,8 +52,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\infiniteTerrain\i_voxelFarm.cs" />
-     <Compile Include="Assets\infiniteTerrain\orbit.cs" />
+     <Compile Include="Assets\infiniteTerrain\Snake\snakeBrain.cs" />
      <Compile Include="Assets\infiniteTerrain\spawn.cs" />
+     <Compile Include="Assets\infiniteTerrain\sunOrbit.cs" />
      <Compile Include="Assets\infiniteTerrain\terraB.cs" />
      <Compile Include="Assets\simpleVoxels\build.cs" />
      <Compile Include="Assets\simpleVoxels\digly.cs" />

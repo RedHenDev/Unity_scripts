@@ -1,9 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/infiniteTerrain/terraB.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/infiniteTerrain/sunOrbit.cs">
     <Files>
-      <File FileName="Assets/infiniteTerrain/terraB.cs" Line="43" Column="40" />
-      <File FileName="Assets/infiniteTerrain/i_voxelFarm.cs" Line="17" Column="14" />
+      <File FileName="Assets/infiniteTerrain/sunOrbit.cs" Line="12" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
