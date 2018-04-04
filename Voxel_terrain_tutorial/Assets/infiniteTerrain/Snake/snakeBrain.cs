@@ -32,9 +32,8 @@ public class snakeBrain : MonoBehaviour {
 
 		if (ready)
 		generateTail ();
-		checkDirection ();
+		
 	}
-	
 
 
 	void generateTail(){
@@ -70,7 +69,7 @@ public class snakeBrain : MonoBehaviour {
 		// If number of seconds elapsed, move.
 		if (Time.time - timeStamp > speed) {
 			timeStamp = Time.time;
-
+			moveSnake ();
 
 
 			if (stepCount == 10) {
@@ -78,7 +77,7 @@ public class snakeBrain : MonoBehaviour {
 				checkDirection ();
 			}
 				
-			moveSnake ();
+
 		}
 
 
@@ -88,50 +87,54 @@ public class snakeBrain : MonoBehaviour {
 	void checkDirection(){
 		stepCount = 0;
 
+		// Prevent the snake from moving back through
+		// its own body!
 		int oldD = whichD;
+
 		whichD = (int)(Random.Range (1, 7));
+
 		while (oldD + whichD == 7) {
 			whichD = (int)(Random.Range (1, 7));
 		}
 
-		Debug.Log ("New D = " + whichD);
+		//Debug.Log ("New D = " + whichD);
 
-//		segments [whichSegment].transform.rotation =
-//			Quaternion.identity;
+		// Rotate the snake.
 
 		switch (whichD){
 		case 1:
-			segments [whichSegment].transform.eulerAngles =
-				new Vector3 (0f, 0f, 0f);
+			segments [whichSegment].transform.
+			eulerAngles = new Vector3 (0f, 0f, 0f);
 			break;
 		case 2:
-			segments [whichSegment].transform.eulerAngles =
-				new Vector3 (-90f, 0f, 0f);
+			segments [whichSegment].transform
+				.eulerAngles = new Vector3 (-90f, 0f, 0);
 			break;
 		case 3:
-			segments [whichSegment].transform.eulerAngles =
-				new Vector3 (0f, 90f, 0f);
+			segments [whichSegment].transform
+				.eulerAngles = new Vector3 (0f, 90f, 0f);
 			break;
 		case 4:
-			segments [whichSegment].transform.eulerAngles =
-				new Vector3 (0f, -90f, 0f);
+			segments [whichSegment].transform
+				.eulerAngles = new Vector3 (0f, -90f, 0f);
 			break;
 		case 5:
-			segments [whichSegment].transform.eulerAngles =
-				new Vector3 (90f, 0f, 0f);
+			segments [whichSegment].transform
+				.eulerAngles = new Vector3 (90f, 0f, 0f);
 			break;
 		case 6:
-			segments [whichSegment].transform.eulerAngles =
-				new Vector3 (0f, 180f, 0f);
+			segments [whichSegment].transform
+				.eulerAngles = new Vector3 (0f, 180f, 0f);
 			break;
-				}
+
+
+		}
 
 		for (int i = 0; i < segments.Length; i++) {
-			if (i != whichSegment){
-			segments [i].transform.rotation =
-				segments [whichSegment].transform.rotation;
-			}
-				}
+			segments [i].transform.rotation
+			= segments [whichSegment].transform.rotation;
+		}
+
 
 	}
 
@@ -144,13 +147,13 @@ public class snakeBrain : MonoBehaviour {
 		segments [whichSegment].transform.position =
 			segments [headSegment].transform.position;
 		// Move new head in chosen direction.
-		//if (whichD == 1) {
+//		if (whichD == 1) {
 
 			segments [whichSegment].transform.Translate (
 			Vector3.forward
 				* spread);
 //		} else if (whichD == 2) {
-//			
+			
 //			segments [whichSegment].transform.Translate (
 //				segments[whichSegment].transform.right
 //				* -spread);
@@ -186,6 +189,8 @@ public class snakeBrain : MonoBehaviour {
 			whichSegment = segments.Length - 1;
 
 
+		segments [headSegment].GetComponent<MeshRenderer> ()
+			.material.color = Random.ColorHSV ();
 
 		// Snake has staken a step.
 		stepCount++;

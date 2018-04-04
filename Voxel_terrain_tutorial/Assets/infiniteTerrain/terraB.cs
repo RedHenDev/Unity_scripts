@@ -10,14 +10,19 @@ public class terraB : MonoBehaviour {
 
 	public int gridSize;
 
+	// How many tiles?
+	public int tileN = 9;
+
 	Vector3 pOP;
 
 
 
-	GameObject[] myFarms = new GameObject[25];
+	GameObject[] myFarms;
 
-	// Use this for initialization
+
 	void Start () {
+
+		myFarms = new GameObject[tileN];
 
 		gridSize = vFarm.GetComponent<i_voxelFarm> ().xVoxels/2;
 
@@ -33,8 +38,8 @@ public class terraB : MonoBehaviour {
 
 
 
-		int cols = 3;
-		int rows = 3;
+		int cols = (int)Mathf.Sqrt(tileN);
+		int rows = cols;
 
 		int k = -1;
 
