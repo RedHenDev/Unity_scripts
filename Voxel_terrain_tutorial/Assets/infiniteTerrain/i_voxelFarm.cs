@@ -65,6 +65,18 @@ public class i_voxelFarm : MonoBehaviour {
 				oPos.z += z * voxelSize.z;
 
 				// Perlin.
+				//float o1 = Mathf.PerlinNoise(	( seed + 1000000f + (this.transform.position.x + oPos.x))/200f, 
+				//	( 1000000f + (this.transform.position.z + oPos.z ))/2000f) * 200f;
+
+
+				//float o2 = Mathf.PerlinNoise(	( seed + 1000000f + (this.transform.position.x + oPos.x))/80f, 
+				//	( 1000000f + (this.transform.position.z + oPos.z ))/800f) * 100f;
+
+				//float o3 = Mathf.PerlinNoise(	( seed + 1000000f + (this.transform.position.x + oPos.x))/7f, 
+				//	( 1000000f + (this.transform.position.z + oPos.z ))/7f) * 3f;
+
+				//oPos.y += o1 + o2 + o3;
+
 				oPos.y += Mathf.PerlinNoise(	( seed + 1000000f + (this.transform.position.x + oPos.x))/frq, 
 					( 1000000f + (this.transform.position.z + oPos.z ))/frq) * amp;
 
