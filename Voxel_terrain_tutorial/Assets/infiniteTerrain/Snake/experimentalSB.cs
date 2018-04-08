@@ -5,7 +5,7 @@ using UnityEngine;
 public class experimentalSB : MonoBehaviour {
 
 	// Rate of movement, in seconds.
-	float speed = 0.1f;
+	public float speed = 0.6f;
 	// TimeStamp, for controlling snake movement.
 	float timeStamp = 0f;
 
@@ -16,6 +16,10 @@ public class experimentalSB : MonoBehaviour {
 	public int segmentN = 11;
 	int whichSegment = 0;
 	int headSegment = 0;
+
+	// Should snake follow a Perlin Noise path?
+	// Other, path is random.
+	public bool PerlinPath = false;
 
 	// Are we ready to generate our tail?
 	public bool ready = false;
@@ -28,25 +32,20 @@ public class experimentalSB : MonoBehaviour {
 	// Total steps, for Perlin Noise.
 	int totalSteps = 0;
 
-	// Array of segments.
-	//public GameObject[] segments;
-
 	public List<GameObject> segments = 
 		new List<GameObject> ();
 
 	void Start () {
 
-		if (ready)
+		if (ready) {
 			growTail ();
-
-			//generateTail ();
+			checkDirection ();
+		}
 
 	}
 
 	void growTail(){
 		ready = false;
-
-		//segments = new List<GameObject> ();
 
 		segments.Add(this.gameObject);
 
@@ -60,42 +59,14 @@ public class experimentalSB : MonoBehaviour {
 		whichSegment = segments.Count-1;
 
 	}
-
-
-//	void generateTail(){
-//		// We want to clone the head, and
-//		// position n tail segments behind us.
-//
-//		ready = false;
-//
-//		segments = new GameObject[segmentN];
-//
-//
-//		segments [0] = this.gameObject;
-//
-//
-//		for (int i = 1; i < segments.Length; i++) {
-//
-//			GameObject s = 
-//				GameObject.CreatePrimitive(PrimitiveType.Cube);
-//			s.transform.position = this.transform.position;
-//			//s.transform.Translate
-//			//(this.transform.forward * -i * spread);
-//
-//			segments [i] = s;
-//		}
-//
-//		// Which was the last segment in the array?
-//		whichSegment = segments.Length - 1;
-//
-//	}
-
-
+		
 	void Update () {
 
 		if (Input.GetMouseButtonUp (0))
 			growSnake ();
 
+		if (Input.GetMouseButtonUp (1))
+			shrinkSnake ();
 
 		// If number of seconds elapsed, move.
 		if (Time.time - timeStamp > speed) {
@@ -113,6 +84,7 @@ public class experimentalSB : MonoBehaviour {
 
 	}
 
+	// Add a segment to the end of snake.
 	void growSnake(){
 
 		GameObject s = 
@@ -120,11 +92,44 @@ public class experimentalSB : MonoBehaviour {
 
 		s.transform.position = 
 			segments[whichSegment].transform.position;
+		s.transform.rotation = 
+			segments[whichSegment].transform.rotation;
 
 		segments.Insert(whichSegment, s);
 
-		segmentN++;
+	}
 
+	// Remove a segment...if possible.
+	void shrinkSnake(){
+
+		if (segments.Count == 1)
+			return;
+
+		// Only remove segment if *NOT* the 'brain segment'.
+		if (segments [whichSegment].gameObject.
+			GetComponent<experimentalSB> () ==
+			null) {
+
+			GameObject poop = segments [whichSegment].gameObject;
+			// Remove the tail-end segment!
+			segments.RemoveAt (whichSegment);
+			GameObject.DestroyObject (poop);
+
+			// Find new end of tail.
+			if (whichSegment > segments.Count - 1)
+				whichSegment =
+				0;
+
+			// Make sure this new end-segment exists!
+			if (whichSegment < 0)
+				whichSegment = segments.Count - 1;
+
+			// Make sure that headSegment does not now refer
+			// to a deleted segment.
+			if (headSegment >= segments.Count)
+				headSegment = whichSegment;
+
+		} 
 
 
 	}
@@ -136,21 +141,25 @@ public class experimentalSB : MonoBehaviour {
 		// its own body!
 		int oldD = whichD;
 
-		//whichD = (int)(Random.Range (1, 7));
+		if (!PerlinPath) {
+			whichD = (int)(Random.Range (1, 7));
 
-		// Use Perlin noise to decide new direction :)
-		whichD = (int)
-			( 1f + Mathf.PerlinNoise(totalSteps/1.1f, 0f)*7);
+			while (oldD + whichD == 7) {
+				whichD = (int)(Random.Range (1, 7));
+			}
+		} else {
+			// Use Perlin noise to decide new direction :)
+			whichD = 1 + (int)
+			(Mathf.PerlinNoise (totalSteps / 6f, 0f) * 6);
 
-		while (oldD + whichD == 7) {
-			totalSteps++;
-			whichD = (int)
-			( 1f + Mathf.PerlinNoise(totalSteps/1.1f, 0f)*7);
+			while (oldD + whichD == 7) {
+				totalSteps++;
+				whichD = 1 + (int)
+			(Mathf.PerlinNoise (totalSteps / 6f, 0f) * 6);
+			}
 		}
 
-//		while (oldD + whichD == 7) {
-//			whichD = (int)(Random.Range (1, 7));
-//		}
+
 
 		Debug.Log ("New D = " + whichD);
 
@@ -210,7 +219,7 @@ public class experimentalSB : MonoBehaviour {
 		// And which is our tail?
 		headSegment = whichSegment;
 		whichSegment++;
-		if (whichSegment == segments.Count)
+		if (whichSegment >= segments.Count)
 			whichSegment = 0;
 
 			segments [headSegment].GetComponent<MeshRenderer> ()

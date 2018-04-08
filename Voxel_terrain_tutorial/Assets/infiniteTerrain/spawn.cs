@@ -43,7 +43,7 @@ public class spawn : MonoBehaviour {
 		pooled = true;
 	}
 
-	void _poolSpawn(){
+	public void _poolSpawn(){
 
 		// How many to spawn at a time?
 		int k = 12;

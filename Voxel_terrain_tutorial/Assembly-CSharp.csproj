@@ -51,8 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\infiniteTerrain\button_Tutorial\makeSnake_BC.cs" />
      <Compile Include="Assets\infiniteTerrain\i_voxelFarm.cs" />
      <Compile Include="Assets\infiniteTerrain\Snake\experimentalSB.cs" />
+     <Compile Include="Assets\infiniteTerrain\Snake\mach3_snake.cs" />
+     <Compile Include="Assets\infiniteTerrain\Snake\mark_4.cs" />
      <Compile Include="Assets\infiniteTerrain\Snake\snakeBrain.cs" />
      <Compile Include="Assets\infiniteTerrain\spawn.cs" />
      <Compile Include="Assets\infiniteTerrain\sunOrbit.cs" />

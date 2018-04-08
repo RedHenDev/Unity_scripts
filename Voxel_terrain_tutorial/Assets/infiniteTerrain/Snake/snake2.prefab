@@ -9,20 +9,20 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1533613429710628}
+  m_RootGameObject: {fileID: 1060480019658428}
   m_IsPrefabParent: 1
---- !u!1 &1533613429710628
+--- !u!1 &1060480019658428
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4381059491840928}
-  - component: {fileID: 33068221524430126}
-  - component: {fileID: 65566140482272264}
-  - component: {fileID: 23478639305536558}
-  - component: {fileID: 114830896284160244}
+  - component: {fileID: 4900189833881830}
+  - component: {fileID: 33512985782847068}
+  - component: {fileID: 65790592859910204}
+  - component: {fileID: 23572513363150818}
+  - component: {fileID: 114477029863994132}
   m_Layer: 0
   m_Name: snake2
   m_TagString: Untagged
@@ -30,12 +30,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4381059491840928
+--- !u!4 &4900189833881830
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1533613429710628}
+  m_GameObject: {fileID: 1060480019658428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9, y: 32, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -43,12 +43,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23478639305536558
+--- !u!23 &23572513363150818
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1533613429710628}
+  m_GameObject: {fileID: 1060480019658428}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -75,35 +75,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33068221524430126
+--- !u!33 &33512985782847068
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1533613429710628}
+  m_GameObject: {fileID: 1060480019658428}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65566140482272264
+--- !u!65 &65790592859910204
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1533613429710628}
+  m_GameObject: {fileID: 1060480019658428}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114830896284160244
+--- !u!114 &114477029863994132
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1533613429710628}
+  m_GameObject: {fileID: 1060480019658428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd27eb2aa04124b078209adf98175de5, type: 3}
+  m_Script: {fileID: 11500000, guid: 81eced7603a1a4e76b441ee6bde7d3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.6
+  spread: 1.5
+  segmentN: 11
+  PerlinPath: 0
   ready: 1
+  stepChange: 10
   segments: []

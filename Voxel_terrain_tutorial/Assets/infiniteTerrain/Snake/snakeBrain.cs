@@ -73,7 +73,7 @@ public class snakeBrain : MonoBehaviour {
 
 
 			if (stepCount == 10) {
-				Debug.Log ("I should be changing direction...!");
+				//Debug.Log ("I should be changing direction...!");
 				checkDirection ();
 			}
 				
@@ -189,8 +189,8 @@ public class snakeBrain : MonoBehaviour {
 			whichSegment = segments.Length - 1;
 
 
-		segments [headSegment].GetComponent<MeshRenderer> ()
-			.material.color = Random.ColorHSV ();
+		//segments [headSegment].GetComponent<MeshRenderer> ()
+		//	.material.color = Random.ColorHSV ();
 
 		// Snake has staken a step.
 		stepCount++;
