@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   spread: 1.5
+  scale: 0.1
   segmentN: 20
   PerlinPath: 0
   ready: 1

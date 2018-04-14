@@ -11,6 +11,8 @@ public class mark_4 : MonoBehaviour {
 
 	// How spread are the segments?
 	public float spread = 1.5f;
+	public float scale = 1f;
+
 
 	// Number of segments.
 	public int segmentN = 11;
@@ -61,10 +63,20 @@ public class mark_4 : MonoBehaviour {
 
 		segments.Add(this.gameObject);
 
+		// Apply new scale to all segments.
+		// And, adjust the spread of segments.
+		Vector3 newScale = new Vector3 (scale, scale, scale);
+		spread *= scale;
+
+		this.transform.localScale = newScale;
+
 		for (int i = 0; i < segmentN; i++) {
 			GameObject s = 
 				GameObject.CreatePrimitive(PrimitiveType.Cube);
 			s.transform.position = this.transform.position;
+
+			// Apply the new scale to each segment.
+			s.transform.localScale = newScale;
 
 			// Set the shader of each segment to that of
 			// 'brain' segment.

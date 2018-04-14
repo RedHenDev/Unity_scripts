@@ -889,6 +889,11 @@ Prefab:
       propertyPath: PerlinPath
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114494372688329354, guid: e09fa180d9a6b4041bd7a681369f3cff,
+        type: 2}
+      propertyPath: scale
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e09fa180d9a6b4041bd7a681369f3cff, type: 2}
   m_IsPrefabParent: 0
