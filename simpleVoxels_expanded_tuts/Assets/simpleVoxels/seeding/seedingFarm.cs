@@ -78,7 +78,8 @@ public class seedingFarm : MonoBehaviour {
 					GameObject.Instantiate (currentBlockType);
 
 				newBlock.transform.position =
-					new Vector3 (myPos.x + x, y, myPos.z + z);
+					new Vector3 (myPos.x + x * currentBlockType.transform.localScale.x, 
+						y, myPos.z + z * currentBlockType.transform.localScale.z);
 
 				// Now decide whether to create a tree!
 				if (Random.value * 100 < 0.1) {
@@ -95,7 +96,8 @@ public class seedingFarm : MonoBehaviour {
 					adjust += treeBabe.transform.localScale.y / 2f;
 
 					treeBabe.transform.position =
-						new Vector3 (myPos.x + x, y + adjust, myPos.z + z);
+						new Vector3 (myPos.x + x * currentBlockType.transform.localScale.x, y + adjust, 
+							myPos.z + z * currentBlockType.transform.localScale.z);
 
 					// Now for the head of the tree.
 					GameObject treeHead = 
@@ -104,7 +106,8 @@ public class seedingFarm : MonoBehaviour {
 					treeHead.transform.localScale *= tT.y/4f + 4f;
 
 					treeHead.transform.position =
-						new Vector3 (myPos.x + x, y + adjust + tT.y/2f, myPos.z + z);
+						new Vector3 (myPos.x + x * currentBlockType.transform.localScale.x
+							, y + adjust + tT.y/2f, myPos.z + z * currentBlockType.transform.localScale.z);
 
 				}
 					
