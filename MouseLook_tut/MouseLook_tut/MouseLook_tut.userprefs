@@ -2,10 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/walk.cs">
     <Files>
-      <File FileName="Assets/mLook.cs" Line="43" Column="20" />
-      <File FileName="Assets/moveMe.cs" Line="17" Column="2" />
-      <File FileName="Assets/eyeLook.cs" Line="33" Column="44" />
-      <File FileName="Assets/walk.cs" Line="11" Column="15" />
+      <File FileName="Assets/eyeLook.cs" Line="30" Column="27" />
+      <File FileName="Assets/walk.cs" Line="25" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
