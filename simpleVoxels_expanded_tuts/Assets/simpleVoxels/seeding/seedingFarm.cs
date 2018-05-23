@@ -74,8 +74,8 @@ public class seedingFarm : MonoBehaviour {
 					(myPos.z + z) / freq) * amp;
 
 				// Final octave.
-//				y += Mathf.PerlinNoise ((seed + myPos.x + x) / freq, 
-//					(myPos.z + z) / (freq*0.5f)) * (amp/0.5f);
+				y += Mathf.PerlinNoise ((seed + myPos.x + x) / freq, 
+					(myPos.z + z) / (freq*0.5f)) * (amp*0.5f);
 
 				if (SnapToGrid) {
 					y = Mathf.Floor (y);
@@ -118,7 +118,7 @@ public class seedingFarm : MonoBehaviour {
 					    (myPos.z + z) / Bfreq)
 					> 0.5f && myPos.z + z < 124f) {
 					newBlock.GetComponent<Renderer> ().material.color =
-						Color.blue;
+						Color.green;
 					makeTree = true;
 //						new Color (	0.9f + Random.value/10f, 
 //									0.9f+ Random.value/10f, 
