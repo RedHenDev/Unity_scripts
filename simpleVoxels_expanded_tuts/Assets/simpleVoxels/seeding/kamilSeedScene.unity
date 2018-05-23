@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293d568a2fbd0418a8967f032eb0823f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 999
+  seed: 2
 --- !u!4 &134197349
 Transform:
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -306,7 +306,7 @@ MonoBehaviour:
   blockTypes:
   - {fileID: 1676933221924836, guid: da09e1d414d04450f8b4b4dae4b1354d, type: 2}
   - {fileID: 1147183442566046, guid: cede84c2ff66a4f3faad3b7a569ee8d2, type: 2}
-  SnapToGrid: 0
+  SnapToGrid: 1
   amp: 12
   freq: 24
   seed: 999999
@@ -350,7 +350,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 770499341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88, y: 100, z: 47}
+  m_LocalPosition: {x: 88, y: 200, z: 47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437362919}
@@ -369,7 +369,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -649,6 +649,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1286676975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1286676977}
+  - component: {fileID: 1286676976}
+  m_Layer: 0
+  m_Name: Voxel Farm (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1286676976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1286676975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389bd070886a74757adc2d59bd2e5d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockTypes:
+  - {fileID: 1676933221924836, guid: da09e1d414d04450f8b4b4dae4b1354d, type: 2}
+  - {fileID: 1147183442566046, guid: cede84c2ff66a4f3faad3b7a569ee8d2, type: 2}
+  SnapToGrid: 1
+  amp: 12
+  freq: 24
+  seed: 1
+--- !u!4 &1286676977
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1286676975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1641666583
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +726,7 @@ MonoBehaviour:
   blockTypes:
   - {fileID: 1676933221924836, guid: da09e1d414d04450f8b4b4dae4b1354d, type: 2}
   - {fileID: 1147183442566046, guid: cede84c2ff66a4f3faad3b7a569ee8d2, type: 2}
-  SnapToGrid: 0
+  SnapToGrid: 1
   amp: 12
   freq: 24
   seed: 1
@@ -895,6 +942,53 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!1 &2035699783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2035699785}
+  - component: {fileID: 2035699784}
+  m_Layer: 0
+  m_Name: Kamil Farm (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2035699784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035699783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389bd070886a74757adc2d59bd2e5d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockTypes:
+  - {fileID: 1676933221924836, guid: da09e1d414d04450f8b4b4dae4b1354d, type: 2}
+  - {fileID: 1147183442566046, guid: cede84c2ff66a4f3faad3b7a569ee8d2, type: 2}
+  SnapToGrid: 1
+  amp: 12
+  freq: 24
+  seed: 999999
+--- !u!4 &2035699785
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035699783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 100, y: 0, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2124766101
 GameObject:
   m_ObjectHideFlags: 0

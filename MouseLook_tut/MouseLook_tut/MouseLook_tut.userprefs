@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/walk.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/eyeLook.cs">
     <Files>
-      <File FileName="Assets/eyeLook.cs" Line="30" Column="27" />
-      <File FileName="Assets/walk.cs" Line="25" Column="30" />
+      <File FileName="Assets/walk.cs" Line="16" Column="5" />
+      <File FileName="Assets/eyeLook.cs" Line="32" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
