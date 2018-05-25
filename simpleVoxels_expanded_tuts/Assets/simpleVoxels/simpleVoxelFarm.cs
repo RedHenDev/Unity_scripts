@@ -88,10 +88,6 @@ public class simpleVoxelFarm : MonoBehaviour {
 					treeBabe.transform.position =
 						new Vector3 (myPos.x + x, y + 1f + adjust, myPos.z + z);
 					
-
-
-
-
 				}
 
 

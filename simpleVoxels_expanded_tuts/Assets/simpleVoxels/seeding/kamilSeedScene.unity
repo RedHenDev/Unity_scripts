@@ -705,6 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1641666585}
   - component: {fileID: 1641666584}
+  - component: {fileID: 1641666586}
   m_Layer: 0
   m_Name: Voxel Farm
   m_TagString: Untagged
@@ -718,7 +719,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1641666583}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389bd070886a74757adc2d59bd2e5d76, type: 3}
   m_Name: 
@@ -743,6 +744,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1641666586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641666583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a626341c95d147648d499b4c924bddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockTypes:
+  - {fileID: 1676933221924836, guid: da09e1d414d04450f8b4b4dae4b1354d, type: 2}
+  - {fileID: 1147183442566046, guid: cede84c2ff66a4f3faad3b7a569ee8d2, type: 2}
+  SnapToGrid: 1
+  amp: 8
+  freq: 12
+  targetTerrain: {fileID: 542984496}
+  seed: 0
+  lerp: 1
 --- !u!1 &1919138933
 GameObject:
   m_ObjectHideFlags: 0

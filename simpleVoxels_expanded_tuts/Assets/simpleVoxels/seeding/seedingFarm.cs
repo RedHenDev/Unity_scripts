@@ -50,8 +50,6 @@ public class seedingFarm : MonoBehaviour {
 
 		//terrainFeatures ();
 
-
-
 		int cols = 100;
 		int rows = 100;
 
@@ -69,13 +67,14 @@ public class seedingFarm : MonoBehaviour {
 				y = Mathf.PerlinNoise ((seed + myPos.x + x) / (freq*4f), 
 					(myPos.z + z) / (freq*4f)) * amp*4f;
 
-				// Orig octave.
+				// Second octave (original octave).
 				y += Mathf.PerlinNoise ((seed + myPos.x + x) / freq, 
 					(myPos.z + z) / freq) * amp;
 
 				// Final octave.
 				y += Mathf.PerlinNoise ((seed + myPos.x + x) / freq, 
 					(myPos.z + z) / (freq*0.5f)) * (amp*0.5f);
+
 
 				if (SnapToGrid) {
 					y = Mathf.Floor (y);
@@ -103,8 +102,12 @@ public class seedingFarm : MonoBehaviour {
 //				}
 
 				// Tundra biome.
-				float Bfreq = freq*6f;
-				if (myPos.z + z > 100f &&
+				// Bfreq is the biome's frequency value. No amplitude required.
+				float Bfreq = 100f;
+
+				// If in the 'North' on the Z axis, and 
+				// if above threshold of 0.5f.
+				if (myPos.z + z > 60f &&
 					(Mathf.PerlinNoise ((myPos.x + x) / Bfreq, 
 						(myPos.z + z) / Bfreq)
 						> 0.5f))
@@ -113,7 +116,8 @@ public class seedingFarm : MonoBehaviour {
 
 
 				// Taiga biome.
-				Bfreq = freq*2f;
+				// Bfreq is the biome's frequency value. No amplitude required.
+				Bfreq = 24f;
 				if (Mathf.PerlinNoise ((myPos.x + x) / Bfreq, 
 					    (myPos.z + z) / Bfreq)
 					> 0.5f && myPos.z + z < 124f) {
@@ -144,8 +148,6 @@ public class seedingFarm : MonoBehaviour {
 
 					GameObject treeBabe = 
 						GameObject.CreatePrimitive (PrimitiveType.Cube);
-
-
 
 					Vector3 tT = treeBabe.transform.localScale;
 					tT.y = Random.value * 24;
