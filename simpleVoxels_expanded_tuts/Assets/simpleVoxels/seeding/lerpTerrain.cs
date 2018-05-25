@@ -61,10 +61,8 @@ public class lerpTerrain : MonoBehaviour {
 
 			//terrainFeatures ();
 
-
-
-			int cols = 100;
-			int rows = 100;
+			int cols = 50;
+			int rows = 50;
 
 			for (int x = 0; x < cols; x++) {
 
@@ -89,28 +87,35 @@ public class lerpTerrain : MonoBehaviour {
 						(myPos.z + z) / (freq*0.5f)) * (amp*0.5f);
 
 
-
 					// *&*&*&*&*&*&*&*&*&*&**&*&&&&**
 					// LERP TEST
 
 					if (lerp) {
 
+						// Basic version. Target is just hard-coded amp value.
 						//y = Mathf.Lerp (y, amp*5.5f, x*0.01f);
 
+
+						// More sophisticated version.
 						// Find target value for height (y) along edge of neighbour tile.
 						float targetY;
-						targetY = Mathf.PerlinNoise ((seed + myPos.x + 100f) / (targetFreq*4f), 
+						// Target terrain position, x and z, held in 2D Vector.
+					Vector2 targetPos = new 
+						Vector2 (seed + myPos.x + targetTerrain.transform.position.x,
+						         targetTerrain.transform.position.z);
+						
+					targetY = Mathf.PerlinNoise ((targetPos.x) / (targetFreq*4f), 
 						(myPos.z + z) / (targetFreq*4f)) * targetAmp*4f;
 						// Orig octave.
-					targetY += Mathf.PerlinNoise ((seed + myPos.x + 100f) / targetFreq, 
+					targetY += Mathf.PerlinNoise ((targetPos.x) / targetFreq, 
 						(myPos.z + z) / targetFreq) * targetAmp;
 						// Final octave.
-					targetY += Mathf.PerlinNoise ((seed + myPos.x + 100f) / targetFreq, 
+					targetY += Mathf.PerlinNoise ((targetPos.x) / targetFreq, 
 						(myPos.z + z) / (targetFreq*0.5f)) * (targetAmp*0.5f);
 
 						// Lerp between current y height and target, 1% increment as we
 						// move along x-axis voxels towards neighbour terrain tile.
-						y = Mathf.Lerp(y, targetY, x*0.01f);
+					y = Mathf.Lerp(y, targetY, (float)(x * 1f/cols));
 
 					}
 
@@ -124,7 +129,7 @@ public class lerpTerrain : MonoBehaviour {
 						y = Mathf.Floor (y);
 					}
 
-					if (y > amp * 3f)
+					if (y > 24f)
 						currentBlockType = 
 							blockTypes [1];
 					else
@@ -134,6 +139,7 @@ public class lerpTerrain : MonoBehaviour {
 					GameObject newBlock = 
 						GameObject.Instantiate (currentBlockType);
 
+					newBlock.transform.SetParent (this.transform);
 
 					// *&*&*&*&*&*&*&**&*&*&*&*&*&*&*&*&
 
@@ -150,9 +156,9 @@ public class lerpTerrain : MonoBehaviour {
 				float Bfreq = 100f;
 
 				// If in the 'North' on the Z axis, and 
-				// if above threshold of 0.5f.
-				if (myPos.z + z > 60f &&
-					(Mathf.PerlinNoise ((myPos.x + x) / Bfreq, 
+				// if above threshold of 0.3f.
+				if (myPos.z + z > 70f + Random.Range(-5,5) &&
+					(Mathf.PerlinNoise ((seed+ myPos.x + x) / Bfreq, 
 						(myPos.z + z) / Bfreq)
 						> 0.3f))
 					newBlock.GetComponent<Renderer> ().
@@ -162,9 +168,9 @@ public class lerpTerrain : MonoBehaviour {
 				// Taiga biome.
 				// Bfreq is the biome's frequency value. No amplitude required.
 				Bfreq = 24f;
-				if (Mathf.PerlinNoise ((myPos.x + x) / Bfreq, 
+				if (Mathf.PerlinNoise ((seed+ myPos.x + x) / Bfreq, 
 					(myPos.z + z) / Bfreq)
-					> 0.5f && myPos.z + z < 124f) {
+					> 0.5f && myPos.z + z < 42f + Random.Range(-5,5)) {
 					newBlock.GetComponent<Renderer> ().material.color =
 						Color.green;
 					makeTree = true;

@@ -50,8 +50,8 @@ public class seedingFarm : MonoBehaviour {
 
 		//terrainFeatures ();
 
-		int cols = 100;
-		int rows = 100;
+		int cols = 50;
+		int rows = 50;
 
 		for (int x = 0; x < cols; x++) {
 
@@ -80,7 +80,7 @@ public class seedingFarm : MonoBehaviour {
 					y = Mathf.Floor (y);
 				}
 
-				if (y > amp * 3f)
+				if (y > 24f)
 					currentBlockType = 
 						blockTypes [1];
 				else
@@ -89,6 +89,8 @@ public class seedingFarm : MonoBehaviour {
 
 				GameObject newBlock = 
 					GameObject.Instantiate (currentBlockType);
+
+				newBlock.transform.SetParent (this.transform);
 
 
 				// *&*&*&*&*&*&*&**&*&*&*&*&*&*&*&*&
@@ -106,21 +108,21 @@ public class seedingFarm : MonoBehaviour {
 				float Bfreq = 100f;
 
 				// If in the 'North' on the Z axis, and 
-				// if above threshold of 0.5f.
-				if (myPos.z + z > 60f &&
-					(Mathf.PerlinNoise ((myPos.x + x) / Bfreq, 
+				// if above threshold of 0.3f.
+				if (myPos.z + z > 70f + Random.Range(-5,5) &&
+					(Mathf.PerlinNoise ((seed+ myPos.x + x) / Bfreq, 
 						(myPos.z + z) / Bfreq)
-						> 0.5f))
+						> 0.3f))
 					newBlock.GetComponent<Renderer> ().
 					material.color = Color.white;
 
-
+			
 				// Taiga biome.
 				// Bfreq is the biome's frequency value. No amplitude required.
 				Bfreq = 24f;
-				if (Mathf.PerlinNoise ((myPos.x + x) / Bfreq, 
+				if (Mathf.PerlinNoise ((seed+ myPos.x + x) / Bfreq, 
 					    (myPos.z + z) / Bfreq)
-					> 0.5f && myPos.z + z < 124f) {
+					> 0.5f && myPos.z + z < 42f + Random.Range(-5,5)) {
 					newBlock.GetComponent<Renderer> ().material.color =
 						Color.green;
 					makeTree = true;
