@@ -93,7 +93,9 @@ public class lerpTerrain : MonoBehaviour {
 					if (lerp) {
 
 						// Basic version. Target is just hard-coded amp value.
-						//y = Mathf.Lerp (y, amp*5.5f, x*0.01f);
+					//y = Mathf.Lerp (y, 28f, (float)(x*1f/cols));
+
+
 
 
 						// More sophisticated version.
@@ -116,6 +118,8 @@ public class lerpTerrain : MonoBehaviour {
 						// Lerp between current y height and target, 1% increment as we
 						// move along x-axis voxels towards neighbour terrain tile.
 					y = Mathf.Lerp(y, targetY, (float)(x * 1f/cols));
+
+
 
 					}
 
