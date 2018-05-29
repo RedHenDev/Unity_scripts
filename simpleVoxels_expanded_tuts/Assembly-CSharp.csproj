@@ -54,6 +54,7 @@
      <Compile Include="Assets\simpleVoxels\build.cs" />
      <Compile Include="Assets\simpleVoxels\digly.cs" />
      <Compile Include="Assets\simpleVoxels\mobs\mob_ai_1.cs" />
+     <Compile Include="Assets\simpleVoxels\mobs\pivotPoint.cs" />
      <Compile Include="Assets\simpleVoxels\seeding\lerpTerrain.cs" />
      <Compile Include="Assets\simpleVoxels\seeding\seedBrain.cs" />
      <Compile Include="Assets\simpleVoxels\seeding\seedingFarm.cs" />
