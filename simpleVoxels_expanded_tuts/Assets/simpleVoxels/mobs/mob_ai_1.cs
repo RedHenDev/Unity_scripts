@@ -12,8 +12,8 @@ public class mob_ai_1 : MonoBehaviour {
 
 	public Transform wayPoint;
 
-	int polR = 1;
-	int polL = 1;
+	float polR = -1;
+	float polL = 1;
 
 	void Start () {
 		timeStamp = Time.realtimeSinceStartup;
@@ -35,6 +35,7 @@ public class mob_ai_1 : MonoBehaviour {
 	void aiHop(){
 		this.GetComponent<Rigidbody> ().AddForce
 		(Vector3.up * 240f);
+		Debug.Log (arms[0].rotation.eulerAngles.x);
 	}
 
 	void aiAction(){
@@ -42,7 +43,7 @@ public class mob_ai_1 : MonoBehaviour {
 		Vector3 dir = wayPoint.position - this.transform.position;
 
 		this.transform.rotation =
-			Quaternion.Lerp (this.transform.rotation,
+			Quaternion.Slerp (this.transform.rotation,
 				Quaternion.LookRotation (dir),
 			0.1f);
 
@@ -51,11 +52,34 @@ public class mob_ai_1 : MonoBehaviour {
 
 
 		// Arm waving.
-		if (Mathf.Abs(arms[0].rotation.x) <= 0.01f) polL = -polL;
-		if (Mathf.Abs(arms[1].rotation.x) <= 0.01f) polR = -polR;
+		if (polL == 1) {
+			//Rotating forwards.
+			if (arms [0].rotation.eulerAngles.x > 30f && 
+				arms [0].rotation.eulerAngles.x < 90f)
+				polL = -polL;
+		}
+		if (polL == -1) {
+			//Rotating backwards.
+			if (arms [0].rotation.eulerAngles.x < 350f &&
+				arms [0].rotation.eulerAngles.x > 330f)
+				polL = -polL;
+		}
 
-		float rotAmount0 = Mathf.Sin(-polL * Time.frameCount/10f * -Random.value) * 4.5f;
-		float rotAmount1 = Mathf.Sin(-polR * Time.frameCount/10f * -Random.value) * 4.5f;
+		if (polR == 1) {
+			//Rotating forwards.
+			if (arms [1].rotation.eulerAngles.x > 30f && 
+				arms [1].rotation.eulerAngles.x < 90f)
+				polR = -polR;
+		}
+		if (polR == -1) {
+			//Rotating backwards.
+			if (arms [1].rotation.eulerAngles.x < 350f &&
+				arms [1].rotation.eulerAngles.x > 330f)
+				polR = -polR;
+		}
+
+		float rotAmount0 = polL * 110f * Time.deltaTime;
+		float rotAmount1 = polR * 110f * Time.deltaTime;
 
 		arms[0].Rotate(Vector3.right * rotAmount0);
 		arms[1].Rotate(Vector3.right * rotAmount1);
