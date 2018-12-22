@@ -35,7 +35,7 @@ public class mob_ai_1 : MonoBehaviour {
 	void aiHop(){
 		this.GetComponent<Rigidbody> ().AddForce
 		(Vector3.up * 240f);
-		Debug.Log (arms[0].rotation.eulerAngles.x);
+		//Debug.Log (arms[0].rotation.eulerAngles.x);
 	}
 
 	void aiAction(){

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pivotPoint : MonoBehaviour {
 
-	public Color colour = Color.green;
+	Color colour = Color.green;
 
 	void OnDrawGizmos(){
 		Gizmos.color = colour;

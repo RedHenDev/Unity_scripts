@@ -21,6 +21,8 @@ public class eyeLook : MonoBehaviour {
 
 	void Update () {
 
+		//bool clampMe = false;
+
 
 		// Do we want to see mouse cursor again?
 		if (Input.GetKey (KeyCode.Escape)) {
@@ -36,20 +38,32 @@ public class eyeLook : MonoBehaviour {
 			(Input.GetAxisRaw ("Mouse X") * 3f,
 				Input.GetAxisRaw("Mouse Y") * 3f);
 
-		mD += mC;
+		// To prevent over-rotation...
+		if (this.transform.rotation.eulerAngles.x < 42f ||
+			this.transform.rotation.eulerAngles.x > 360f-42f) {
+			mD += mC;
+		} else
+			mD.y -= mC.y * 3f;
+		// Multiply by 3f in order to create a little 'bounce'
+		// so that user does not rotate beyond threshold.
+
+		Debug.Log 
+		(this.transform.localRotation.eulerAngles.x + " <- my rotation :)");
 
 
 //			myBody.localRotation =
 //			Quaternion.AngleAxis (mD.x, Vector3.up);
 
-		Quaternion qR =
-		this.transform.localRotation =
-			Quaternion.AngleAxis (mD.x, Vector3.up);
+
+	
+
+		Quaternion qR = this.transform.localRotation =
+						Quaternion.AngleAxis (mD.x, Vector3.up);
 
 		// The actual rotation happening!
-		this.transform.localRotation = qR * 
-			Quaternion.AngleAxis (-mD.y, Vector3.right);
-
+		this.transform.localRotation = qR *
+					Quaternion.AngleAxis (-mD.y, Vector3.right);
+			
 		this.transform.Translate
 			(Vector3.forward * movement);
 
