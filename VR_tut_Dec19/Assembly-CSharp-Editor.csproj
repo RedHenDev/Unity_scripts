@@ -82,7 +82,7 @@
      <None Include="Assets\GoogleVR\Plugins\Android\proguard-gvr.txt" />
      <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Cardboard.xml" />
  <Reference Include="Assembly-CSharp">
- <HintPath>/Users/bnew/Documents/video tutorials/VR_tut_Dec19/Library/ScriptAssemblies/Assembly-CSharp.dll</HintPath>
+ <HintPath>/Users/bnew/Documents/Unity_scripts/VR_tut_Dec19/Library/ScriptAssemblies/Assembly-CSharp.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -157,7 +157,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Google.ProtocolBuffers">
- <HintPath>/Users/bnew/Documents/video tutorials/VR_tut_Dec19/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
+ <HintPath>/Users/bnew/Documents/Unity_scripts/VR_tut_Dec19/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
